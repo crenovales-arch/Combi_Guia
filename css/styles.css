@@ -1,10 +1,10 @@
 :root {
-    --text-color: rgb(255, 255, 255);
-    --accent-color: rgb(255, 0, 183);
-    --background-color: rgb(0, 0, 0);
-    --heding-color: rgb(187, 0, 255);
+    --text-color: rgb(0, 0, 0);
+    --accent-color: rgb(255, 255, 255);
+    --background-color: rgb(255, 255, 255);
+    --heding-color: rgb(255, 153, 0);
     --tittle-font: 'Bungee', sans-serif;
-    --body-font: 'Sansita', sans-serif;
+    --body-font: 'Sansita', sans-serif; 
 }
 
 html {
