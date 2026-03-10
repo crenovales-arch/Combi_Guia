@@ -1,6 +1,6 @@
 :root {
     --text-color: rgb(0, 0, 0);
-    --accent-color: rgb(255, 255, 255);
+    --accent-color: rgb(0, 0, 0);
     --background-color: rgb(255, 255, 255);
     --heding-color: rgb(255, 153, 0);
     --tittle-font: 'Bungee', sans-serif;
@@ -14,7 +14,6 @@ html {
 
 main, header, footer {
     width: 100%;
-    max-width: 960px;
     margin: 0 auto;
     padding: 2em;
 }
@@ -24,11 +23,18 @@ body {
     margin: 50px 50px 20px 50px;
     font-family: var(--tittle-font);
     font-size: 3rem;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url(../img/);
 }
 
 a {
     color: var(--accent-color);
-    font-size: .5em;
+    font-size: 1em;
     text-decoration: double;
     color: var(--accent-color);
     font-family: var(--body-font);
@@ -53,13 +59,13 @@ h3 {
     font-style: normal;
 }
 h1 {
-    font-size: 2.5em;
+    font-size: 4em;
 }
 h2 {
-    font-size: 1.5em;
+    font-size: 3.5em;
 }
 h3 {
-    font-size: 1em;
+    font-size: 2em;
 }
 
 p {
@@ -68,6 +74,7 @@ p {
     color: var(--text-color);
     margin: 50px 50px 20px 50px;
     font-family: var(--body-font);
+    max-width: 60ch;
 }
 
 footer {
