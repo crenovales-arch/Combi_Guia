@@ -1,1 +1,13 @@
 *.tmp
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.flv
+*.wmv
+
+*.psd
+*.ai
+*.indd
+*.sketch
+*.logs

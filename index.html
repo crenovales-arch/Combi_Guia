@@ -16,7 +16,7 @@
 </head>
 
 <body class="hero-body">
-    <video src="./img/video.mov" autoplay muted loop></video>
+    <video id="background-video" autoplay muted loop></video>
     <section class="hero">
         <h1>LA COMBI GUÍA</h1>
         <div id="text-container">
@@ -25,10 +25,20 @@
                 <a href="./docs/" class="primary-btn">Explorar</a>
             </nav>
         </div>
-      
     </section>
     <footer>
         
     </footer>
+    <script>
+        const portraitQuery = window.matchMedia('(orientation: portrait)');
+        function setVideoSrc() {
+            const video = document.getElementById('background-video');
+            const isPortrait = portraitQuery.matches;
+            video.src = isPortrait ? './video/portrate.mp4' : './video/landscape.mov';
+            video.load();
+        }
+        portraitQuery.addEventListener('change', setVideoSrc);
+        setVideoSrc(); // initial
+    </script>
 </body>
 </html>
