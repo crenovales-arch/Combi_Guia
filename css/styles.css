@@ -1,10 +1,10 @@
 :root {
     --text-color: rgb(0, 0, 0);
-    --accent-color: rgb(0, 0, 0);
+    --accent-color: rgb(255, 255, 255);
     --background-color: rgb(255, 255, 255);
     --heding-color: rgb(255, 153, 0);
-    --tittle-font: 'Bungee', sans-serif;
-    --body-font: 'Sansita', sans-serif; 
+    --tittle-font: 'Tenby Five', sans-serif;
+    --body-font: 'helvetica', sans-serif; 
 }
 
 html {
@@ -12,29 +12,23 @@ html {
     scroll-behavior: smooth;
 }
 
-main, header, footer {
+main, header {
     width: 100%;
+    max-width: 960px;
     margin: 0 auto;
     padding: 2em;
 }
 body {
-    background: var(--background-color);
+    background: rgb(255, 153, 0);
     color: var(--text-color);
     margin: 50px 50px 20px 50px;
     font-family: var(--tittle-font);
     font-size: 3rem;
-    padding: 0;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-image: url(../img/);
 }
 
 a {
     color: var(--accent-color);
-    font-size: 1em;
+    font-size: .5em;
     text-decoration: double;
     color: var(--accent-color);
     font-family: var(--body-font);
@@ -43,50 +37,98 @@ a {
 }
 
 header {
-    background: var(--heding-color);
-    color: var(--text-color);
     text-align: left;
-   
+
 }
 
 h1,
 h2,
 h3 {
-    margin: 50px 50px 20px 50px;
     color: var(--accent-color);
     font-family: var(--tittle-font);
-    font-weight: 400;
     font-style: normal;
 }
 h1 {
-    font-size: 4em;
+    background: var(--heding-color);
+    font-size: 5em;
+    position: fixed;
+    top: 1%;
+    left: 0%;
+    text-align: center;
+    width: 100%;
+    padding-top: .2em;
+    line-height: 1em;
 }
 h2 {
-    font-size: 3.5em;
+    font-size: 1.5em;
 }
 h3 {
-    font-size: 2em;
+    font-size: 1em;
 }
 
 p {
     font-size: 1em;
-    margin: 1rem 0;
-    color: var(--text-color);
-    margin: 50px 50px 20px 50px;
     font-family: var(--body-font);
-    max-width: 60ch;
 }
 
 footer {
     background: var(--heding-color);
-    padding: 1rem;
+    padding: .01rem;
     text-align: center;
     font-family: var(--tittle-font);
     font-weight: 400;
     font-style: normal;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 footer p {
     color: var(--text-color);
 
+}
+
+video   {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+    opacity: .7;
+}
+
+#text-container {
+    color: var(--accent-color);
+    position: absolute;
+    right: 0%;
+    bottom: 12%;
+    width: 50%;
+    max-width: 600px;
+    min-width: 320px;
+    padding: 1em;
+}
+
+@media screen and (max-width: 640px) {
+    #text-container {
+        background-color: red;
+
+    }
+}
+
+.primary-btn {
+    background-color: var(--heding-color);
+    color: var(--accent-color);
+    padding: .5em 2em;
+    border-radius: .8em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.primary-btn:hover {
+    background-color: rgb(59,165,41);
+    color: var(--accent-color);
 }
