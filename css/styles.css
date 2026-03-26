@@ -1,6 +1,6 @@
 :root {
     --text-color: rgb(0, 0, 0);
-    --accent-color: rgb(255, 255, 255);
+    --accent-color: rgb(59,165,41);
     --background-color: rgb(255, 255, 255);
     --heding-color: rgb(255, 153, 0);
     --tittle-font: 'Tenby Five', sans-serif;
@@ -47,6 +47,7 @@ h3 {
     font-style: normal;
 }
 h1 {
+    color: var(--background-color);
     background: var(--heding-color);
     font-size: 5em;
     top: 1%;
@@ -57,13 +58,16 @@ h1 {
     line-height: 1em;
 }
 h2 {
+    color: var(--text-color);
     font-size: 1.5em;
 }
 h3 {
+    color: var(--text-color);
     font-size: 1em;
 }
 
 p {
+    color: inherit;
     font-size: 1em;
     font-family: var(--body-font);
 }
@@ -123,7 +127,7 @@ video   {
 }
 
 #text-container {
-    color: var(--accent-color);
+    color: var(--background-color);
     position: absolute;
     right: 0%;
     bottom: 12%;
@@ -141,7 +145,7 @@ video   {
 
 .primary-btn {
     background-color: var(--heding-color);
-    color: var(--accent-color);
+    color: var(--background-color);
     padding: .5em 2em;
     border-radius: .8em;
     text-decoration: none;
@@ -151,5 +155,5 @@ video   {
 
 .primary-btn:hover {
     background-color: rgb(59,165,41);
-    color: var(--accent-color);
+    color: var(--background-color);
 }
