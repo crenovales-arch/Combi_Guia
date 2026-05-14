@@ -27,7 +27,7 @@ html {
 
 .hero-body h1 {
     margin-left: 2%;
-    margin-top: 1%; 
+    margin-top:2%; 
     
     color: var(--title-color);
     font-family: var(--tittle-font);
