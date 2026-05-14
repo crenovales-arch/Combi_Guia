@@ -34,13 +34,14 @@ html {
     font-size: 260px;
     font-style: normal;
     font-weight: 700;
-    line-height: 100%; 
+    line-height: 89%; 
     letter-spacing: -10.4px;
+    
 
     /* Efecto de una palabra por línea */
     display: block;
     width: min-content;      /* Fuerza el salto de línea por palabra */
-    margin-bottom: 0px;      /* LOS 5 PIXELES DE SEPARACIÓN AQUÍ */
+    margin-bottom: 0%;      /* LOS 5 PIXELES DE SEPARACIÓN AQUÍ */
 }
 
 
@@ -53,8 +54,7 @@ html {
     max-width: 600px;
     min-width: 320px;
     position: relative; /* Cambiar absolute por relative es clave aquí */
-    top: 0; 
-    margin-top: 0;
+    margin-top: -150px;
     margin-left: 3%;
 }
 
@@ -79,17 +79,18 @@ html {
 }
 
 .mi-rectangulo {
+  position: relative;
   width: 800px; /* Ancho */
   height: 170px; /* Alto (más pequeño que el ancho) */
   background-color: var(--title-color);
   position: relative;
-  margin-top: -6%;
+  margin-top: -4.3%;
   left: 44.4%;
   border-top-left-radius: 100px;
 }           
 
 img[src$=".svg"] {
- position: absolute;
+position: relative;
  margin-left: 52%;
- bottom: 20%;
+ bottom: -300%;
 }
