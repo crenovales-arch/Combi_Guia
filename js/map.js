@@ -92,7 +92,6 @@ function buildAccordion(routesData) {
         // Contenedor de subrutas
         const subroutesDiv = document.createElement("div");
         subroutesDiv.className = "accordion-content";
-        subroutesDiv.style.display = "none";
         
         subrutas.forEach(subruta => {
             const subBtn = document.createElement("button");
