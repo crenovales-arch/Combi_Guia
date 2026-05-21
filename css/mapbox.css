@@ -1,30 +1,125 @@
+@font-face {
+    font-family: 'Combi Sans';
+    src: url('CombiSans-Regular.woff2') format('woff2'),
+        url('CombiSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --title-color: rgb(235, 92, 1);
     --background-color: rgb(255, 215, 179);
+    --text-color: rgb(0, 0, 0);
     --body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+     --tittle-font: 'Combi Sans', sans;
+     --sidebar-bg: rgb(255, 255, 255);
+
 }
 *, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; height: 100%; font-family: var(--body-font); }
-#layout { display: flex; height: 100vh; overflow: hidden; }
+html, body 
+    html, body { 
+    margin: 0; 
+    padding: 0; 
+    height: 100%; 
+    width: 100%;
+    font-family: var(--body-font); 
+}
 
-/* Sidebar */
-#sidebar {
-    width: 290px; flex-shrink: 0;
-    background: var(--background-color);
-    display: flex; flex-direction: column; overflow: hidden;
-    border-right: 2px solid rgba(0,0,0,.1);
+
+#layout { 
+    position: relative;
+    display: flex; 
+    flex-direction: column; /* Apila el Header arriba y el contenido abajo */
+    height: 100vh; 
+    width: 100vw;
+    overflow: hidden; 
 }
-#sidebar-header { padding: 16px 16px 8px; flex-shrink: 0; }
-#sidebar-header h1 {
-    margin: 0 0 10px;
-    font-size: 2rem; font-weight: 800;
+
+#body-header {
+  background-color: var(--background-color); 
+  font-family: var(--tittle-font);
+  padding: 15px 20px 5px 20px;
+  text-align: left; 
+  color: var(--text-color); 
+  position: relative;
+  width: 100%;
+  height: 60px;
+  z-index: 1000; /* Asegura que se mantenga visible y bien estructurado */
+  font-weight: 700;
+    line-height: 140%; 
+    letter-spacing: auto;
+    
+}
+
+#body-header h2 {
+   font-size: 50px;
+   margin-top: 3px;
+}
+
+#body-header img {
+    position: absolute;
+    right: 240px; /* Ajusta según el tamaño de tu logo */
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px; /* Ajusta el tamaño del logo */
+    width: auto;
+}
+
+#body-header .primary-btn {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border-radius: 9px;           /* Rectángulo puro */
+    text-decoration: none;      /* Sin subrayado inicial */
+    font-family: var(--body-font);
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-block;
+    transition: color 0.3s ease;
+    top: 8px;
+    right: 10px;
+    position: absolute;
+}
+
+#body-header .primary-btn:hover {
     color: var(--title-color);
-    line-height: 1.1; letter-spacing: -1px;
 }
+
+
+#main-content {
+    display: flex;
+    flex: 1; /* Ocupa todo el alto restante de la pantalla */
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+#map {
+    position: absolute;
+    left: 290px; /* Se desplaza exactamente lo que mide el sidebar para no quedar abajo */
+    top: 0;
+    width: calc(100% - 290px); /* Ocupa el resto de la pantalla */
+    height: 100%;
+    z-index: 1; /* Capa de fondo del contenido inferior */
+}
+
+#sidebar {
+    width: 290px; 
+    flex-shrink: 0;
+    background: var(--sidebar-bg);
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden;
+    position: relative; 
+    z-index: 5; /* Por encima del mapa */
+}
+
+
 #btn-all {
     width: 100%; padding: 8px 14px;
     border: none; border-radius: 8px;
-    background: #111; color: #fff;
+    background: #000000; color: #ffffff;
     font-size: .85rem; font-weight: 700;
     cursor: pointer; transition: background .2s;
 }
@@ -32,20 +127,78 @@ html, body { margin: 0; padding: 0; height: 100%; font-family: var(--body-font);
 #route-list {
     flex: 1; overflow-y: auto;
     padding: 8px 12px 16px;
-    display: flex; flex-direction: column; gap: 5px;
+    display: flex; flex-direction: column; gap: 0;
 }
-.route-btn {
+
+/* Acordeón */
+.accordion-item {
+    margin-bottom: 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.accordion-header {
     display: flex; align-items: center; gap: 9px;
-    padding: 7px 10px; border-radius: 8px;
-    border: 2px solid transparent;
+    padding: 10px 12px;
+    border-left: 4px solid transparent;
     background: rgba(255,255,255,.55);
-    cursor: pointer; font-size: .78rem;
+    cursor: pointer; 
+    font-size: .78rem;
     font-family: var(--body-font);
-    text-align: left; line-height: 1.25;
-    transition: opacity .2s, background .2s;
+    text-align: left; 
+    line-height: 1.25;
+    transition: background .2s, color .2s;
+    font-weight: 600;
 }
-.route-btn:hover { background: rgba(255,255,255,.85); }
-.route-btn.off { opacity: .32; }
+
+.accordion-header:hover { 
+    background: rgba(255,255,255,.85);
+}
+
+.accordion-header .toggle-icon {
+    margin-left: auto;
+    font-size: .6rem;
+    transition: transform .3s;
+}
+
+.accordion-header.open .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    display: none;
+    background: rgba(0,0,0,.02);
+    flex-direction: column;
+    gap: 0;
+}
+
+.accordion-content.show {
+    display: flex;
+}
+
+.subroute-btn {
+    padding: 10px 14px 10px 24px;
+    border: none;
+    border-left: 3px solid transparent;
+    background: transparent;
+    cursor: pointer; 
+    font-size: .75rem;
+    font-family: var(--body-font);
+    text-align: left; 
+    line-height: 1.3;
+    transition: background .2s, font-weight .2s;
+    color: var(--text-color);
+}
+
+.subroute-btn:hover { 
+    background: rgba(0,0,0,.08);
+    font-weight: 600;
+}
+
+.subroute-btn.active {
+    background: rgba(0,0,0,.12);
+    font-weight: 700;
+}
+
 .dot {
     width: 13px; height: 13px; border-radius: 50%;
     flex-shrink: 0; border: 2px solid rgba(0,0,0,.2);
@@ -61,3 +214,251 @@ html, body { margin: 0; padding: 0; height: 100%; font-family: var(--body-font);
 }
 .popup-route { font-weight: 700; font-size: .8rem; margin-bottom: 3px; }
 .popup-stop  { font-size: .9rem; color: #333; }
+
+body, .modal {
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;         
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Máxima prioridad sobre el mapa, sidebar y header */
+}
+
+
+#btn-modal:checked ~ .modal {
+opacity: 1;
+visibility: visible;
+}
+
+.contenedor {
+background-color: rgb(255, 221, 200);
+width: 700px;
+height: 600px;
+margin: auto;
+box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.6);
+transition: all 500ms ease;
+position: relative;
+}
+
+.contenedor header{
+     margin-left: 5%;
+    margin-top:5%; 
+    
+    color: var(--title-color);
+    font-family: var(--tittle-font);
+    font-size: 150px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 89%; 
+    letter-spacing: -3.5px;
+    
+
+    /* Efecto de una palabra por línea */
+    display: block;
+    width: min-content;      /* Fuerza el salto de línea por palabra */
+    margin-bottom: 0%;      /* LOS 5 PIXELES DE SEPARACIÓN AQUÍ */
+}
+
+.contenedor label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 5em;
+    color: var(--text-color);
+    cursor: pointer;
+ 
+}
+
+#btn-modal {
+    display: none;
+}
+
+.lbl-modal {
+background-color: rgb(255, 255, 255);
+padding: 10px 15px;
+border-radius: 15%;
+cursor: pointer;
+
+}
+
+.content .text-negro {
+    position: absolute; /* Cambiado de fixed a absolute para que dependa de la tarjeta */
+    left: 5%;           /* Alineado al mismo margen que tu Header */
+    bottom: 250px;      /* Posición fija desde abajo, no se mueve si cambias el header */
+    font-size: 1.5em;
+    color: var(--text-color);
+    line-height: 1.2;
+    font-weight: bold;
+    margin: 0;          /* Eliminamos márgenes rebeldes */
+}
+
+.content .text-naranja {
+    position: absolute; /* Cambiado de fixed a absolute */
+    left: 5%;           /* Mismo margen izquierdo */
+    bottom: 218px;      /* Se posiciona abajo del texto negro de forma independiente */
+    font-size: 1.5em;
+    color: var(--title-color);
+    line-height: 1.2;
+    font-weight: bold;
+    margin: 0;
+}
+
+.content .text-rojo {
+    position: absolute; /* Forzamos absolute para que no dependa de los textos de arriba */
+    left: 5%;
+    bottom: 140px;       /* Posición fija en la zona inferior izquierda */
+    font-family: var(--body-font);
+    font-size: 1.6em;
+    color: var(--text-color);     /* Cambiado a negro para que combine con tu foto */
+    width: 45%;         /* Limita el ancho para que el texto salte de línea solo */
+    margin: 0;
+    line-height: 1.3;
+}
+
+.mi-rectangulo {
+    width: 389px; 
+    height: 160px;       /* Regresado a su alto original de tu primer CSS */
+    background-color: var(--title-color);
+    position: absolute;  /* Cambiado a absolute para anclarlo abajo a la derecha */
+    bottom: 0;
+    right: 0;            /* Pegado por completo a la esquina derecha */
+    left: auto;          /* Cancela el left: 44.4% anterior que causaba conflicto */
+    margin-top: 0;
+    border-top-left-radius: 100px;
+    z-index: 1;          /* Capa por detrás de la combi */
+}   
+
+img[src$=".svg"] {
+   position: absolute;  
+    right: 100px;         
+    bottom: 160px;       
+    z-index: 2;       /* Capa por encima del rectángulo naranja */
+}
+
+#secondary-content {
+    position: absolute;   /* Cambiado de relative a absolute para controlar sus límites */
+    top: 70px;            /* Distancia desde la parte superior de su contenedor real */
+    right: 12px;
+    background-color: var(--sidebar-bg);
+   width: 300px; 
+    height: 180px; 
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    z-index: 5;
+}
+#secondary-content h3 {
+    margin: 10px 0 10px 0; 
+    font-family: var(--tittle-font);
+    font-size: 25px; 
+    color: var(--title-color); 
+    font-weight: 700; 
+}
+
+#Leyend {
+    padding: 15px 20px;
+    font-family: var(--body-font);
+    color: var(--text-color);
+}
+
+#search-footer { 
+    position: absolute;
+    bottom: 0;          /* Ajusta según el espacio que quieras desde el header */      
+    margin-right: 25px;         /* Posición fija controlada */
+    background: var(--title-color); 
+    padding: 15px 20px; /* Padding uniforme */
+    border-radius: 12px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2); 
+    z-index: 10;        /* Por encima del mapa */
+    width: 800px;   /* Un ancho máximo limpio para que no tape todo el mapa */
+    height: 150px;  /* Limita la altura para evitar que se extienda demasiado */
+}
+
+#search-footer h3 {
+     margin: 10px 0 10px 0; 
+     font-size: 1.1rem; 
+     font-family: var(--body-font);
+     color: var(--sidebar-bg); 
+     font-weight: 700; 
+    }
+
+.search-inputs {
+     display: flex; 
+     gap: 12px; 
+     align-items: flex-start; 
+    }
+
+.input-group {
+     flex: 1; 
+     position: relative; 
+    }
+
+.search-inputs input {
+     width: 100%; 
+     padding: 10px 14px; 
+     border: 1px solid #ccc; 
+     border-radius: 8px; 
+     font-size: 0.9rem; 
+     outline: none; 
+    }
+
+.search-inputs input:focus {
+     border-color: var(--title-color); 
+    }
+#btn-search-route {
+     padding: 10px 20px; 
+     border: none; 
+     background: #000; 
+     color: #fff; 
+     border-radius: 8px; 
+     font-weight: bold; 
+     cursor: pointer; 
+     font-size: 0.9rem; 
+    }
+
+#btn-search-route:hover {
+     background: var(--sidebar-bg);
+     color: var(--text-color);
+     }
+
+/* Caja de sugerencias predictivas */
+.suggestions-box {
+     position: absolute; 
+     bottom: 100%; left: 0; right: 0; 
+     background: white; 
+     border: 1px solid #ccc; 
+     border-radius: 8px; 
+     max-height: 200px; 
+     overflow-y: auto; 
+     z-index: 15; 
+     display: none; 
+     box-shadow: 0 -2px 10px rgba(0,0,0,0.1); 
+     margin-bottom: 5px; 
+    }
+
+.suggestion-item {
+     padding: 10px 14px; 
+     cursor: pointer; 
+     font-size: 0.85rem; 
+     border-bottom: 1px solid #f0f0f0; 
+    }
+
+.suggestion-item:hover {
+     background: var(--text-color);
+     }
+    

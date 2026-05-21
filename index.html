@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,27 +9,77 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <link rel="stylesheet" href="./css/mapbox.css">
+
 </head>
+
 <body>
-<div id="layout">
-    <div id="sidebar">
-        <div id="sidebar-header">
-            <h1>Combi Guía</h1>
-            <button id="btn-all">Mostrar / ocultar todas</button>
+
+    <input type="checkbox" id="btn-modal" checked>
+
+    <div id="layout">
+        <header id="body-header">
+            <img src="./img/combi.svg" alt="logo combi guia" width="45">
+            <h2>Combi Guía</h2>
+            <nav>
+                <li></li><a href="./docs/docs.html" class="primary-btn">CONOCE EL PROYECTO</a>
+            </nav>
+        </header>
+
+        <div id="main-content">
+            <div id="sidebar">
+                <div id="sidebar-header">
+                    <button id="btn-all">Mostrar / ocultar todas</button>
+                </div>
+                <div id="route-list"></div>
+            </div>
+
+            <div id="map"></div>
         </div>
-        <div id="route-list"></div>
     </div>
-    <div id="map"></div>
-</div>
-<!-- 
-<prompt>
-    Vuelve a formatear los puntos, el csv tiene esta estructura:
-    - Columna 0 - Ruta: de esa línea 2 y 3 la ruta es 'Ahuehuetes - Los Juanes (Atizapán de Zaragoza)'
-    - La columna 1 - Indica una parada de esa ruta
-    - Latitud, Longitud describen la ubicación de las paradas de la ruta. 
-    - Las rutas sólo van a servir para categorizar los puntos y filtrarlos, mostrarlos/ocultarlos mediante estado toggle.
-</prompt>
--->
-<script src="./js/map.js"></script>
+
+    <div id="secondary-content">
+        <div id="Leyend">
+            <h3 id="leyenda">Leyenda</h3>
+            <p id="leyenda-description"></p>
+            <ul>
+                <li>SALIDAS Y LLEGADAS</li>
+                <li>HOSPITALES</li>
+                <li>CENTROS COMERCIALES</li>
+                <li>PARQUES</li>
+            </ul>
+        </div>
+
+    </div>
+    <div id="search-footer">
+        <h3>Planea tu ruta</h3>
+        <div class="search-inputs">
+            <div class="input-group">
+                <input type="text" id="search-origin" placeholder="¿De dónde sales? (Ej. Toreo, Minas)">
+                <div id="suggestions-origin" class="suggestions-box"></div>
+            </div>
+            <div class="input-group">
+                <input type="text" id="search-destination" placeholder="¿A dónde vas? (Ej. Pasito, Km 14)">
+                <div id="suggestions-destination" class="suggestions-box"></div>
+            </div>
+            <button id="btn-search-route">Buscar</button>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="contenedor">
+            <label for="btn-modal">x</label>
+            <header>Combi Guía</header>
+            <img src="./img/combi.svg" alt="logo combi guia" width="190">
+            <div class="content">
+                <p class="text-negro">VIAJA SEGURO,</p>
+                <p class="text-naranja">VIAJA INFORMADO </p>
+                <p class="text-rojo">Conoce el sistema de rutas Naucalpan - CDMX</p>
+            </div>
+            <div class="mi-rectangulo"></div>
+        </div>
+    </div>
+
+    <script src="./js/map.js"></script>
 </body>
+
 </html>

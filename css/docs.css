@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Combi Sans';
+    src: url('CombiSans-Regular.woff2') format('woff2'),
+        url('CombiSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --text-color: rgb(0, 0, 0);
+    --accent-color: rgb(59,165,41);
+    --background-color: rgb(255, 215, 179);
+    --title-color: rgb(235, 92, 1);
+    --tittle-font: 'Combi Sans', sans;
+    --body-font: 'helvetica', sans-serif;
+}
+
+html {
+    font-size: 50%;
+    scroll-behavior: smooth;
+    background-color: var(--background-color);
+}
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-left: 2%;
+    margin-top:2%; 
+    
+    color: var(--title-color);
+    font-family: var(--tittle-font);
+    font-size: 260px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 89%; 
+    letter-spacing: -10.4px;
+    
+
+    /* Efecto de una palabra por línea */
+    display: block;
+    width: min-content;      /* Fuerza el salto de línea por palabra */
+    margin-bottom: 0%;      /* LOS 5 PIXELES DE SEPARACIÓN AQUÍ */
+}

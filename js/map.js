@@ -1,43 +1,23 @@
 // ── Token Mapbox ──────────────────────────────────────────────────────────────
 // Reemplaza este valor con tu token de Mapbox:  https://account.mapbox.com/access-tokens/
-mapboxgl.accessToken = '';
+mapboxgl.accessToken = window.MAPBOX_TOKEN;
 
 // ── Paleta de colores por ruta ────────────────────────────────────────────────
 const ROUTE_COLORS = {
-    "10 de abril - Calvario Calacoaya":                          "#F58231",
-    "Ahuehuetes - Los Juanes (Atizapán de Zaragoza)":            "#E6194B",
-    "Ampliación Higuera - Metro 4 caminos":                      "#FF9800",
-    "Ampliación Higuera - Metro chapultepec":                    "#795548",
-    "Amplición Higuera - Tlanepantla":                           "#2980B9",
-    "Barrio Norte - Las palomas":                                "#FF5722",
-    "Bodegas Atizapan - Unidad Maravillas Ceylan":               "#8E44AD",
-    "Bodegas Atizapán - Monte sol":                              "#7F8C8D",
-    "Calacoaya - Tlanapantla":                                   "#D35400",
-    "Col. Huguera - Tlanepantla":                                "#8B4513",
-    "Lazaro Cardenas - Tlanepantla":                             "#C0392B",
-    "Lomas San Miguel - Metro chapultepec":                      "#3F51B5",
-    "Metro 4 caminos - Calvario Calacoaya por Ahuizotla":        "#4363D8",
-    "Metro 4 caminos - Calvario Calacoaya por Lomas Verdes":     "#3CB44B",
-    "Metro Observatorio - Col. Las Águilas":                     "#F39C12",
-    "Metro Observatorio - Lomas de Atizapán":                    "#2ECC71",
-    "Metro Observatorio - Lomas de las torres":                  "#E74C3C",
-    "Metro Observatorio - Tecnologico":                          "#1ABC9C",
-    "Metro Observatorio - Tlanepantla":                          "#9B59B6",
-    "Mexico 86 - Metro 4 caminos":                               "#00BFFF",
-    "Mexico Nuevo - Central de abastos Atizapán":                "#16A085",
-    "México 86 - Metro 4 caminos":                               "#F032E6",
-    "México 86 - Tlanepantla":                                   "#911EB4",
-    "Peñitas - Atizapán palacio municipal":                      "#607D8B",
-    "Zona 1 México Nuevo - Hospital Ceylan":                     "#E91E63",
-    "Zona 7 México nuevo - Tlanepantla":                         "#27AE60",
+    "10": "#E6194B",
+    "16": "#3CB44B",
+    "22": "#911EB4",
+    "25": "#F032E6",
+    "26": "#FF5722",
+    "27": "#3F51B5",
 };
 
-function colorFor(ruta) { return ROUTE_COLORS[ruta] || "#999999"; }
+function colorForRoute(routeNum) { return ROUTE_COLORS[routeNum] || "#999999"; }
 
 // ── Mapa ──────────────────────────────────────────────────────────────────────
 const map = new mapboxgl.Map({
     container: "map",
-    style: "mapbox://styles/mapbox/light-v11",
+    style: "mapbox://styles/crisreno/cmpd7jfkk000201qygdet1lne",
     center: [-99.228, 19.520],
     zoom: 11,
 });
@@ -49,72 +29,103 @@ const LAYER_LINES   = "rutas-lines-layer";
 const LAYER_CIRCLES = "paradas-circles";
 const LAYER_LABELS  = "paradas-labels";
 
-let allRoutes    = [];
-let activeRoutes = new Set();
-
-function buildColorExpr(routes) {
-    const expr = ["match", ["get", "ruta"]];
-    routes.forEach(r => expr.push(r, colorFor(r)));
-    expr.push("#999999");
-    return expr;
-}
+let routesData = {}; // { ruta: { subruta: [{ parada, lat, lng }...] } }
+let activeSubroute = null; // { ruta, subruta }
 
 function applyFilter() {
-    const visible = allRoutes.filter(r => activeRoutes.has(r));
-    const f = visible.length === 0
-        ? ["==", "ruta", "__none__"]
-        : ["in", ["get", "ruta"], ["literal", visible]];
-    map.setFilter(LAYER_LINES,   f);
-    map.setFilter(LAYER_CIRCLES, f);
-    map.setFilter(LAYER_LABELS,  f);
+    if (!activeSubroute) {
+        // Sin selección: ocultar todo
+        map.setFilter(LAYER_LINES,   ["==", "subruta", "__none__"]);
+        map.setFilter(LAYER_CIRCLES, ["==", "subruta", "__none__"]);
+        map.setFilter(LAYER_LABELS,  ["==", "subruta", "__none__"]);
+        return;
+    }
+    
+    const { ruta, subruta } = activeSubroute;
+    const filter = ["all",
+        ["==", ["get", "ruta"], ruta],
+        ["==", ["get", "subruta"], subruta]
+    ];
+    
+    map.setFilter(LAYER_LINES,   filter);
+    map.setFilter(LAYER_CIRCLES, filter);
+    map.setFilter(LAYER_LABELS,  filter);
 }
-
-function syncButtons() {
-    document.querySelectorAll(".route-btn").forEach(btn => {
-        btn.classList.toggle("off", !activeRoutes.has(btn.dataset.ruta));
-    });
-}
-
-function buildSidebar(routes) {
-    const list = document.getElementById("route-list");
-    list.innerHTML = "";
-    routes.forEach(ruta => {
-        const color = colorFor(ruta);
-        const btn = document.createElement("button");
-        btn.className = "route-btn";
-        btn.dataset.ruta = ruta;
-        btn.style.borderColor = color;
-        btn.innerHTML = `<span class="dot" style="background:${color}"></span><span>${ruta}</span>`;
-        btn.addEventListener("click", () => {
-            activeRoutes.has(ruta) ? activeRoutes.delete(ruta) : activeRoutes.add(ruta);
-            syncButtons();
-            applyFilter();
-        });
-        list.appendChild(btn);
-    });
-}
-
-document.getElementById("btn-all").addEventListener("click", () => {
-    const anyOff = allRoutes.some(r => !activeRoutes.has(r));
-    anyOff ? allRoutes.forEach(r => activeRoutes.add(r)) : activeRoutes.clear();
-    syncButtons();
-    applyFilter();
-});
 
 // Popup
 const popup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false });
 map.on("mouseenter", LAYER_CIRCLES, (e) => {
     map.getCanvas().style.cursor = "pointer";
-    const { ruta, parada } = e.features[0].properties;
+    const { ruta, subruta, parada } = e.features[0].properties;
+    const color = colorForRoute(ruta);
     popup
         .setLngLat(e.features[0].geometry.coordinates)
-        .setHTML(`<div class="popup-route" style="color:${colorFor(ruta)}">${ruta}</div><div class="popup-stop">${parada}</div>`)
+        .setHTML(`<div class="popup-route" style="color:${color}"><strong>Ruta ${ruta}</strong></div><div class="popup-subroute">${subruta}</div><div class="popup-stop">${parada}</div>`)
         .addTo(map);
 });
 map.on("mouseleave", LAYER_CIRCLES, () => {
     map.getCanvas().style.cursor = "";
     popup.remove();
 });
+
+// Construir acordeón de rutas
+function buildAccordion(routesData) {
+    const container = document.getElementById("route-list");
+    container.innerHTML = "";
+    
+    const sortedRoutes = Object.keys(routesData).sort((a, b) => parseInt(a) - parseInt(b));
+    
+    sortedRoutes.forEach(ruta => {
+        const subrutas = Object.keys(routesData[ruta]);
+        const color = colorForRoute(ruta);
+        
+        // Contenedor de la ruta
+        const routeDiv = document.createElement("div");
+        routeDiv.className = "accordion-item";
+        
+        // Header de la ruta
+        const header = document.createElement("div");
+        header.className = "accordion-header";
+        header.style.borderColor = color;
+        header.innerHTML = `<span class="dot" style="background:${color}"></span><span>Ruta ${ruta}</span><span class="toggle-icon">▼</span>`;
+        
+        // Contenedor de subrutas
+        const subroutesDiv = document.createElement("div");
+        subroutesDiv.className = "accordion-content";
+        subroutesDiv.style.display = "none";
+        
+        subrutas.forEach(subruta => {
+            const subBtn = document.createElement("button");
+            subBtn.className = "subroute-btn";
+            subBtn.style.borderLeftColor = color;
+            subBtn.textContent = subruta;
+            subBtn.dataset.ruta = ruta;
+            subBtn.dataset.subruta = subruta;
+            
+            subBtn.addEventListener("click", () => {
+                // Actualizar selección activa
+                document.querySelectorAll(".subroute-btn").forEach(b => b.classList.remove("active"));
+                subBtn.classList.add("active");
+                
+                activeSubroute = { ruta, subruta };
+                applyFilter();
+            });
+            
+            subroutesDiv.appendChild(subBtn);
+        });
+        
+        // Toggle al hacer clic en el header
+        header.addEventListener("click", () => {
+            const isHidden = !subroutesDiv.classList.contains("show");
+            subroutesDiv.classList.toggle("show", isHidden);
+            header.classList.toggle("open", isHidden);
+        });
+        
+        routeDiv.appendChild(header);
+        routeDiv.appendChild(subroutesDiv);
+        container.appendChild(routeDiv);
+    });
+}
 
 // Cargar CSV
 map.on("load", () => {
@@ -123,47 +134,68 @@ map.on("load", () => {
         header: true,
         skipEmptyLines: true,
         complete: ({ data }) => {
-            const seen = new Set();
-            data.forEach(row => {
-                if (row.Ruta && !seen.has(row.Ruta)) { seen.add(row.Ruta); allRoutes.push(row.Ruta); }
+            // Agrupar datos por Ruta y Subruta
+            data.filter(row => row.Ruta && row.Subruta && row.Parada && row.Latitud && row.Longitud).forEach(row => {
+                const ruta = row.Ruta;
+                const subruta = row.Subruta;
+                
+                if (!routesData[ruta]) routesData[ruta] = {};
+                if (!routesData[ruta][subruta]) routesData[ruta][subruta] = [];
+                
+                routesData[ruta][subruta].push({
+                    parada: row.Parada,
+                    lat: parseFloat(row.Latitud),
+                    lng: parseFloat(row.Longitud)
+                });
             });
-            allRoutes.forEach(r => activeRoutes.add(r));
-
-            // Agrupar paradas por ruta (en orden de aparición en el CSV)
-            const stopsByRoute = {};
-            data.filter(row => row.Latitud && row.Longitud).forEach(row => {
-                if (!stopsByRoute[row.Ruta]) stopsByRoute[row.Ruta] = [];
-                stopsByRoute[row.Ruta].push([parseFloat(row.Longitud), parseFloat(row.Latitud)]);
-            });
-
-            // GeoJSON de líneas (una LineString por ruta)
+            
+            // Crear GeoJSON de líneas (una LineString por subruta)
             const linesGeojson = {
                 type: "FeatureCollection",
-                features: Object.entries(stopsByRoute)
-                    .filter(([, coords]) => coords.length > 1)
-                    .map(([ruta, coords]) => ({
-                        type: "Feature",
-                        geometry: { type: "LineString", coordinates: coords },
-                        properties: { ruta },
-                    })),
+                features: []
             };
-
-            // GeoJSON de puntos (una Feature por parada)
+            
+            // Crear GeoJSON de puntos (una Feature por parada)
             const geojson = {
                 type: "FeatureCollection",
-                features: data
-                    .filter(row => row.Latitud && row.Longitud)
-                    .map(row => ({
-                        type: "Feature",
-                        geometry: { type: "Point", coordinates: [parseFloat(row.Longitud), parseFloat(row.Latitud)] },
-                        properties: { ruta: row.Ruta, parada: row.Parada },
-                    })),
+                features: []
             };
-
+            
+            // Iterar por todas las rutas y subrutas
+            Object.entries(routesData).forEach(([ruta, subrutas]) => {
+                Object.entries(subrutas).forEach(([subruta, paradas]) => {
+                    // LineString para esta subruta
+                    if (paradas.length > 1) {
+                        const coords = paradas.map(p => [p.lng, p.lat]);
+                        linesGeojson.features.push({
+                            type: "Feature",
+                            geometry: { type: "LineString", coordinates: coords },
+                            properties: { ruta, subruta }
+                        });
+                    }
+                    
+                    // Points para cada parada
+                    paradas.forEach(parada => {
+                        geojson.features.push({
+                            type: "Feature",
+                            geometry: { type: "Point", coordinates: [parada.lng, parada.lat] },
+                            properties: { ruta, subruta, parada: parada.parada }
+                        });
+                    });
+                });
+            });
+            
             // ── Fuentes ──────────────────────────────────────────────────────
             map.addSource(LINES_ID,  { type: "geojson", data: linesGeojson });
             map.addSource(SOURCE_ID, { type: "geojson", data: geojson });
-
+            
+            // Construir expresión de colores por ruta
+            const colorExpr = ["match", ["get", "ruta"]];
+            Object.keys(ROUTE_COLORS).forEach(ruta => {
+                colorExpr.push(ruta, colorForRoute(ruta));
+            });
+            colorExpr.push("#999999");
+            
             // ── Capa: líneas de ruta ──────────────────────────────────────────
             map.addLayer({
                 id: LAYER_LINES,
@@ -171,26 +203,31 @@ map.on("load", () => {
                 source: LINES_ID,
                 layout: { "line-join": "round", "line-cap": "round" },
                 paint: {
-                    "line-color": buildColorExpr(allRoutes),
-                    "line-width": ["interpolate", ["linear"], ["zoom"], 9, 1.5, 14, 3.5],
-                    "line-opacity": 0.65,
+                    "line-color": colorExpr,
+                    "line-width": ["interpolate", ["linear"], ["zoom"], 9, 2, 14, 4],
+                    "line-opacity": 0.8,
                 },
             });
-
-            map.addLayer({
-                id: LAYER_LINES,
+            
             // ── Capa: círculos de paradas ─────────────────────────────────────
+            map.addLayer({
+                id: LAYER_CIRCLES,
                 type: "circle",
                 source: SOURCE_ID,
                 paint: {
                     "circle-radius": ["interpolate", ["linear"], ["zoom"], 9, 5, 14, 10],
-                    "circle-color": buildColorExpr(allRoutes),
+                    "circle-color": ["case",
+                        ["boolean", ["feature-state", "hover"], false],
+                        "#FFD700",
+                        colorExpr
+                    ],
                     "circle-stroke-color": "#ffffff",
                     "circle-stroke-width": 1.5,
                     "circle-opacity": 0.9,
                 },
             });
-
+            
+            // ── Capa: etiquetas de paradas ────────────────────────────────────
             map.addLayer({
                 id: LAYER_LABELS,
                 type: "symbol",
@@ -208,9 +245,9 @@ map.on("load", () => {
                     "text-halo-width": 1.5,
                 },
             });
-
-            buildSidebar(allRoutes);
-            syncButtons();
+            
+            // Construir acordeón
+            buildAccordion(routesData);
         },
     });
 });

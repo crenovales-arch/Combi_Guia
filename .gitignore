@@ -5,7 +5,7 @@
 *.mkv
 *.flv
 *.wmv
-
+/js/secrets.js
 *.psd
 *.ai
 *.indd
