@@ -4,12 +4,12 @@ mapboxgl.accessToken = window.MAPBOX_TOKEN;
 
 // ── Paleta de colores por ruta ────────────────────────────────────────────────
 const ROUTE_COLORS = {
-    "10": "#E6194B",
-    "16": "#3CB44B",
-    "22": "#911EB4",
-    "25": "#F032E6",
-    "26": "#FF5722",
-    "27": "#3F51B5",
+    "10": "#58AD46",
+    "16": "#B8D433",
+    "22": "#7a2a83",
+    "25": "#12B5EA",
+    "26": "#C22126",
+    "27": "#EA6AA1",
 };
 
 function colorForRoute(routeNum) { return ROUTE_COLORS[routeNum] || "#999999"; }
