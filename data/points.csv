@@ -1,11 +1,11 @@
 Ruta,Subruta,Parada,Latitud,Longitud
 10,Ahuehuetes - Los Juanes (Atizapán de Zaragoza),Base de combis los Juanes,19.555356,-99.242203
 10,Ahuehuetes - Los Juanes (Atizapán de Zaragoza),Ahuehuetes,19.534969,-99.172936
-16,Metro 4 caminos - Calvario Calacoaya por Lomas Verdes,Metro 4 caminos,19.461286,-99.214861
-16,Metro 4 caminos - Calvario Calacoaya por Lomas Verdes,Parque Naucalli,19.490872,-99.243158
 16,Metro 4 caminos - Calvario Calacoaya por Lomas Verdes,El calvario,19.529931,-99.251911
-16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Metro 4 caminos,19.461286,-99.214861
-16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Parque Naucalli,19.490872,-99.243158
+16,Metro 4 caminos - Calvario Calacoaya por Lomas Verdes,Parque Naucalli,19.490872,-99.243158
+16,Metro 4 caminos - Calvario Calacoaya por Lomas Verdes,Metro 4 Caminos,19.461286,-99.214861
+16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Metro 4 Caminos,19.4595064,-99.2171403
+16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Parque Naucalli,19.4919456,-99.2367184
 16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Plaza Satélite,19.510978,-99.235769
 16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,El calvario,19.529931,-99.251911
 16,10 de abril - Calvario Calacoaya,10 de abril,19.491492,-99.218528
@@ -15,18 +15,20 @@ Ruta,Subruta,Parada,Latitud,Longitud
 22,México 86 - Tlanepantla,Bodegas Atizapán,19.568878,-99.253122
 22,México 86 - Tlanepantla,Palacio Municipal Atizapán,19.577928,-99.230231
 22,México 86 - Tlanepantla,Tlanepantla,19.536225,-99.196728
-22,Mexico 86 - Metro 4 Caminos,México 86,19.590333,-99.247836
-22,Mexico 86 - Metro 4 Caminos,Bodegas Atizapán,19.568878,-99.253122
-22,Mexico 86 - Metro 4 Caminos,Palacio Municipal Atizapán,19.577928,-99.230231
-22,Mexico 86 - Metro 4 Caminos,Plaza Satélite,19.510978,-99.235769
-22,Mexico 86 - Metro 4 Caminos,Toreo,19.453689,-99.219717
-22,Mexico 86 - Metro 4 Caminos,Metro 4 Caminos,19.461286,-99.214861
-22,Mexico 86 - Metro 4 Caminos,México 86,19.590333,-99.247836
-22,Mexico 86 - Metro 4 Caminos,Nissan Atizapán,19.548583,-99.238558
-22,Mexico 86 - Metro 4 Caminos por Satélite,Plaza Satélite,19.510978,-99.235769
-22,Mexico 86 - Metro 4 Caminos,Parque Naucalli,19.490872,-99.243158
-22,Mexico 86 - Metro 4 Caminos,Bachilleres,19.485275,-99.208406
-22,Mexico 86 - Metro 4 Caminos,Metro 4 caminos,19.461286,-99.214861
+22,México 86 - Metro 4 Caminos por Satélite,México 86,19.590333,-99.247836
+22,México 86 - Metro 4 Caminos por Satélite,Bodegas Atizapán,19.568878,-99.253122
+22,México 86 - Metro 4 Caminos por Satélite,Palacio Municipal Atizapán,19.577928,-99.230231
+22,México 86 - Metro 4 Caminos Por Satélite,Plaza Satélite,19.510978,-99.235769
+22,México 86 - Metro 4 Caminos por Satélite,Toreo,19.453689,-99.219717
+22,México 86 - Metro 4 Caminos por Satélite,Metro 4 Caminos,19.461286,-99.214861
+22,México 86 - Metro 4 Caminos por Bachilleres,México 86,19.590333,-99.247836
+22,México 86 - Metro 4 Caminos por Bachilleres,Nissan Atizapán,19.548583,-99.238558
+22,México 86 - Metro 4 Caminos por Bachilleres,Plaza Satélite,19.510978,-99.235769
+22,México 86 - Metro 4 Caminos por Bachilleres,Parque Naucalli,19.4919456,-99.2367184
+22,México 86 - Metro 4 Caminos por Bachilleres,Bachilleres,19.4851703,-99.2084008
+22,México 86 - Metro 4 Caminos por Bachilleres,Parque Bicentenario,19.4709438,-99.2067172
+22,México 86 - Metro 4 Caminos por Bachilleres,Panteón Español,19.4627358,-99.2125993
+22,México 86 - Metro 4 Caminos por Bachilleres,Metro 4 Caminos,19.4595064,-99.2171403
 25,Metro Observatorio - Lomas de Atizapán,Metro Observatorio,19.398353,-99.1959
 25,Metro Observatorio - Lomas de Atizapán,Defensa,19.440631,-99.214542
 25,Metro Observatorio - Lomas de Atizapán,Toreo,19.453689,-99.219717

@@ -23,21 +23,22 @@ const map = new mapboxgl.Map({
 });
 map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
-const SOURCE_ID     = "paradas";
-const LINES_ID      = "rutas-lines";
-const LAYER_LINES   = "rutas-lines-layer";
-const LAYER_CIRCLES = "paradas-circles";
-const LAYER_LABELS  = "paradas-labels";
+const SOURCE_ID           = "paradas";
+const DIRECTIONS_SOURCE_ID = "directions-route";
+const LAYER_DIRECTIONS     = "directions-route-layer";
+const LAYER_CIRCLES        = "paradas-circles";
+const LAYER_LABELS         = "paradas-labels";
 
 let routesData = {}; // { ruta: { subruta: [{ parada, lat, lng }...] } }
 let activeSubroute = null; // { ruta, subruta }
+let directionsCache = {}; // Cache local de geometrías de direcciones
 
 function applyFilter() {
     if (!activeSubroute) {
-        // Sin selección: ocultar todo
-        map.setFilter(LAYER_LINES,   ["==", "subruta", "__none__"]);
-        map.setFilter(LAYER_CIRCLES, ["==", "subruta", "__none__"]);
-        map.setFilter(LAYER_LABELS,  ["==", "subruta", "__none__"]);
+        // Sin selección: ocultar todo y borrar la ruta mostrada
+        map.setFilter(LAYER_CIRCLES, ["==", ["get", "subruta"], "__none__"]);
+        map.setFilter(LAYER_LABELS,  ["==", ["get", "subruta"], "__none__"]);
+        map.getSource(DIRECTIONS_SOURCE_ID)?.setData({ type: "FeatureCollection", features: [] });
         return;
     }
     
@@ -47,7 +48,6 @@ function applyFilter() {
         ["==", ["get", "subruta"], subruta]
     ];
     
-    map.setFilter(LAYER_LINES,   filter);
     map.setFilter(LAYER_CIRCLES, filter);
     map.setFilter(LAYER_LABELS,  filter);
 }
@@ -74,6 +74,7 @@ function buildAccordion(routesData) {
     container.innerHTML = "";
     
     const sortedRoutes = Object.keys(routesData).sort((a, b) => parseInt(a) - parseInt(b));
+    let defaultSelection = null;
     
     sortedRoutes.forEach(ruta => {
         const subrutas = Object.keys(routesData[ruta]);
@@ -92,8 +93,13 @@ function buildAccordion(routesData) {
         // Contenedor de subrutas
         const subroutesDiv = document.createElement("div");
         subroutesDiv.className = "accordion-content";
+        const isDefaultOpen = ruta === "10";
+        if (isDefaultOpen) {
+            subroutesDiv.classList.add("show");
+            header.classList.add("open");
+        }
         
-        subrutas.forEach(subruta => {
+        subrutas.forEach((subruta, index) => {
             const subBtn = document.createElement("button");
             subBtn.className = "subroute-btn";
             subBtn.style.borderLeftColor = color;
@@ -108,7 +114,13 @@ function buildAccordion(routesData) {
                 
                 activeSubroute = { ruta, subruta };
                 applyFilter();
+                fetchDirectionsForSubroute(ruta, subruta, color);
             });
+            
+            if (isDefaultOpen && index === 0 && !defaultSelection) {
+                subBtn.classList.add("active");
+                defaultSelection = { ruta, subruta, color };
+            }
             
             subroutesDiv.appendChild(subBtn);
         });
@@ -116,14 +128,91 @@ function buildAccordion(routesData) {
         // Toggle al hacer clic en el header
         header.addEventListener("click", () => {
             const isHidden = !subroutesDiv.classList.contains("show");
-            subroutesDiv.classList.toggle("show", isHidden);
-            header.classList.toggle("open", isHidden);
+            document.querySelectorAll(".accordion-content").forEach(content => content.classList.remove("show"));
+            document.querySelectorAll(".accordion-header").forEach(h => h.classList.remove("open"));
+
+            if (isHidden) {
+                subroutesDiv.classList.add("show");
+                header.classList.add("open");
+            }
         });
         
         routeDiv.appendChild(header);
         routeDiv.appendChild(subroutesDiv);
         container.appendChild(routeDiv);
     });
+
+    if (defaultSelection) {
+        activeSubroute = { ruta: defaultSelection.ruta, subruta: defaultSelection.subruta };
+        applyFilter();
+        fetchDirectionsForSubroute(defaultSelection.ruta, defaultSelection.subruta, defaultSelection.color);
+    }
+}
+
+function getRouteCacheKey(coords) {
+    return coords.map(point => point.join(",")).join("|");
+}
+
+function fitBoundsFromGeojson(featureCollection) {
+    const routeFeature = featureCollection.features?.[0];
+    if (!routeFeature || !routeFeature.geometry || !routeFeature.geometry.coordinates) return;
+    const coords = routeFeature.geometry.coordinates;
+    if (coords.length === 0) return;
+
+    const bounds = coords.reduce(
+        (b, coord) => b.extend(coord),
+        new mapboxgl.LngLatBounds(coords[0], coords[0])
+    );
+    map.fitBounds(bounds, { padding: 60 });
+}
+
+function fetchDirectionsForSubroute(ruta, subruta, color) {
+    const paradas = routesData[ruta]?.[subruta] || [];
+    if (paradas.length < 2) return;
+
+    const coords = paradas.map(p => [p.lng, p.lat]);
+    const cacheKey = getRouteCacheKey(coords);
+
+    if (directionsCache[cacheKey]) {
+        map.getSource(DIRECTIONS_SOURCE_ID).setData(directionsCache[cacheKey]);
+        map.setPaintProperty(LAYER_DIRECTIONS, "line-color", color);
+        fitBoundsFromGeojson(directionsCache[cacheKey]);
+        return;
+    }
+
+    const coordinateString = coords.map(coord => coord.join(",")).join(";");
+    const endpoint = `https://api.mapbox.com/directions/v5/mapbox/driving/${coordinateString}`;
+    const url = `${endpoint}?geometries=geojson&overview=full&access_token=${encodeURIComponent(mapboxgl.accessToken)}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (!data.routes || data.routes.length === 0) {
+                console.warn("No se recibió una ruta de la API de direcciones de Mapbox.");
+                map.getSource(DIRECTIONS_SOURCE_ID).setData({ type: "FeatureCollection", features: [] });
+                return;
+            }
+
+            const routeGeojson = {
+                type: "FeatureCollection",
+                features: [
+                    {
+                        type: "Feature",
+                        geometry: data.routes[0].geometry,
+                        properties: { ruta, subruta }
+                    }
+                ]
+            };
+
+            directionsCache[cacheKey] = routeGeojson;
+            map.getSource(DIRECTIONS_SOURCE_ID).setData(routeGeojson);
+            map.setPaintProperty(LAYER_DIRECTIONS, "line-color", color);
+            fitBoundsFromGeojson(routeGeojson);
+        })
+        .catch(error => {
+            console.error("Error al solicitar la ruta de Mapbox Directions:", error);
+            map.getSource(DIRECTIONS_SOURCE_ID).setData({ type: "FeatureCollection", features: [] });
+        });
 }
 
 // Cargar CSV
@@ -148,12 +237,6 @@ map.on("load", () => {
                 });
             });
             
-            // Crear GeoJSON de líneas (una LineString por subruta)
-            const linesGeojson = {
-                type: "FeatureCollection",
-                features: []
-            };
-            
             // Crear GeoJSON de puntos (una Feature por parada)
             const geojson = {
                 type: "FeatureCollection",
@@ -163,16 +246,6 @@ map.on("load", () => {
             // Iterar por todas las rutas y subrutas
             Object.entries(routesData).forEach(([ruta, subrutas]) => {
                 Object.entries(subrutas).forEach(([subruta, paradas]) => {
-                    // LineString para esta subruta
-                    if (paradas.length > 1) {
-                        const coords = paradas.map(p => [p.lng, p.lat]);
-                        linesGeojson.features.push({
-                            type: "Feature",
-                            geometry: { type: "LineString", coordinates: coords },
-                            properties: { ruta, subruta }
-                        });
-                    }
-                    
                     // Points para cada parada
                     paradas.forEach(parada => {
                         geojson.features.push({
@@ -185,8 +258,8 @@ map.on("load", () => {
             });
             
             // ── Fuentes ──────────────────────────────────────────────────────
-            map.addSource(LINES_ID,  { type: "geojson", data: linesGeojson });
             map.addSource(SOURCE_ID, { type: "geojson", data: geojson });
+            map.addSource(DIRECTIONS_SOURCE_ID, { type: "geojson", data: { type: "FeatureCollection", features: [] } });
             
             // Construir expresión de colores por ruta
             const colorExpr = ["match", ["get", "ruta"]];
@@ -195,16 +268,16 @@ map.on("load", () => {
             });
             colorExpr.push("#999999");
             
-            // ── Capa: líneas de ruta ──────────────────────────────────────────
+            // ── Capa: línea de la ruta trazada por la API de direcciones ───────
             map.addLayer({
-                id: LAYER_LINES,
+                id: LAYER_DIRECTIONS,
                 type: "line",
-                source: LINES_ID,
+                source: DIRECTIONS_SOURCE_ID,
                 layout: { "line-join": "round", "line-cap": "round" },
                 paint: {
-                    "line-color": colorExpr,
-                    "line-width": ["interpolate", ["linear"], ["zoom"], 9, 2, 14, 4],
-                    "line-opacity": 0.8,
+                    "line-color": "#000000",
+                    "line-width": ["interpolate", ["linear"], ["zoom"], 9, 3, 14, 6],
+                    "line-opacity": 0.9,
                 },
             });
             
