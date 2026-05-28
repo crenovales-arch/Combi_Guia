@@ -32,6 +32,7 @@ const LAYER_LABELS         = "paradas-labels";
 let routesData = {}; // { ruta: { subruta: [{ parada, lat, lng }...] } }
 let activeSubroute = null; // { ruta, subruta }
 let directionsCache = {}; // Cache local de geometrías de direcciones
+let endpointMarkers = []; // marcadores de inicio/fin
 
 function applyFilter() {
     if (!activeSubroute) {
@@ -115,6 +116,7 @@ function buildAccordion(routesData) {
                 activeSubroute = { ruta, subruta };
                 applyFilter();
                 fetchDirectionsForSubroute(ruta, subruta, color);
+                addEndpointMarkersForSubroute(ruta, subruta);
             });
             
             if (isDefaultOpen && index === 0 && !defaultSelection) {
@@ -146,6 +148,7 @@ function buildAccordion(routesData) {
         activeSubroute = { ruta: defaultSelection.ruta, subruta: defaultSelection.subruta };
         applyFilter();
         fetchDirectionsForSubroute(defaultSelection.ruta, defaultSelection.subruta, defaultSelection.color);
+        addEndpointMarkersForSubroute(defaultSelection.ruta, defaultSelection.subruta);
     }
 }
 
@@ -323,3 +326,41 @@ map.on("load", () => {
         },
     });
 });
+
+function clearEndpointMarkers() {
+    endpointMarkers.forEach(m => m.remove());
+    endpointMarkers = [];
+}
+
+function addEndpointMarkersForSubroute(ruta, subruta) {
+    clearEndpointMarkers();
+    const color = '#ea5d24';
+    const paradas = routesData?.[ruta]?.[subruta] || [];
+    if (!paradas || paradas.length === 0) return;
+
+    const primero = paradas[0];
+    const ultimo = paradas[paradas.length - 1];
+
+    const crear = (lng, lat, texto) => {
+        const el = document.createElement('div');
+        el.className = 'endpoint-marker';
+        el.style.width = '18px';
+        el.style.height = '18px';
+        el.style.borderRadius = '50%';
+        el.style.background = color;
+        el.style.border = '2px solid #fff';
+        el.style.boxShadow = '0 0 4px rgba(0,0,0,0.4)';
+
+        const marker = new mapboxgl.Marker(el)
+            .setLngLat([lng, lat])
+            .setPopup(new mapboxgl.Popup({ offset: 18 }).setText(texto))
+            .addTo(map);
+
+        endpointMarkers.push(marker);
+    };
+
+    crear(primero.lng, primero.lat, `Ruta ${ruta} — ${subruta} — Inicio: ${primero.parada}`);
+    if (primero.lng !== ultimo.lng || primero.lat !== ultimo.lat) {
+        crear(ultimo.lng, ultimo.lat, `Ruta ${ruta} — ${subruta} — Fin: ${ultimo.parada}`);
+    }
+}
