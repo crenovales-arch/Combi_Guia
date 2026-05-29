@@ -391,7 +391,7 @@ img[src$=".svg"] {
     box-shadow: 0 4px 20px rgba(0,0,0,0.2); 
     z-index: 10;        /* Por encima del mapa */
     width: 800px;   /* Un ancho máximo limpio para que no tape todo el mapa */
-    height: 150px;  /* Limita la altura para evitar que se extienda demasiado */
+    min-height: 220px;  /* Aumenta el alto para instrucciones */
 }
 
 #search-footer h3 {
@@ -466,7 +466,36 @@ img[src$=".svg"] {
 .suggestion-item:hover {
      background: var(--text-color);
      }
-    
+
+.plan-instructions {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #222;
+    max-height: 110px;
+    overflow-y: auto;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+    font-size: 0.9rem;
+}
+
+.plan-title {
+    margin: 0 0 8px 0;
+    font-weight: 700;
+    color: #000;
+    font-size: 0.95rem;
+}
+
+.plan-step {
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.plan-note {
+    font-size: 0.85rem;
+    color: #555;
+}
+
 #btn-toggle-master {
     width: 100%; 
     padding: 8px 14px;

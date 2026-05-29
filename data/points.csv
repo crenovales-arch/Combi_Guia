@@ -1,134 +1,135 @@
-Ruta,Subruta,Parada,Latitud,Longitud
-10,Ahuehuetes - Los Juanes (Atizapán de Zaragoza),Base de combis los Juanes,19.555356,-99.242203
-10,Ahuehuetes - Los Juanes (Atizapán de Zaragoza),Ahuehuetes,19.534969,-99.172936
-16,Metro 4 caminos - Calvario Calacoaya por Lomas Verdes,El calvario,19.529931,-99.251911
-16,Metro 4 caminos - Calvario Calacoaya por Lomas Verdes,Parque Naucalli,19.490872,-99.243158
-16,Metro 4 caminos - Calvario Calacoaya por Lomas Verdes,Metro 4 Caminos,19.461286,-99.214861
-16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Metro 4 Caminos,19.4595064,-99.2171403
-16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Parque Naucalli,19.4919456,-99.2367184
-16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Plaza Satélite,19.510978,-99.235769
-16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,El calvario,19.529931,-99.251911
-16,10 de abril - Calvario Calacoaya,10 de abril,19.491492,-99.218528
-16,10 de abril - Calvario Calacoaya,Plaza Satélite,19.510978,-99.235769
-16,10 de abril - Calvario Calacoaya,El calvario,19.529931,-99.251911
-22,México 86 - Tlanepantla,México 86,19.590333,-99.247836
-22,México 86 - Tlanepantla,Bodegas Atizapán,19.568878,-99.253122
-22,México 86 - Tlanepantla,Palacio Municipal Atizapán,19.577928,-99.230231
+Ruta,Subruta,tipo de Ruta,Parada,Latitud,Longitud
+10,Ahuehuetes - Los Juanes (Atizapán de Zaragoza),Inicial,Base de combis los Juanes,19.555356,-99.242203
+10,Ahuehuetes - Los Juanes (Atizapán de Zaragoza),Final,Ahuehuetes,19.534969,-99.172936
+16,Metro 4 caminos - Calvario Calacoaya por Lomas Verdes,Inicial,El calvario,19.529931,-99.251911
+16,Metro 4 caminos - Calvario Calacoaya por Lomas Verdes,Intermedia,Parque Naucalli,19.490872,-99.243158
+16,Metro 4 caminos - Calvario Calacoaya por Lomas Verdes,Final,Metro 4 Caminos,19.461286,-99.214861
+16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Final,Metro 4 Caminos,19.4595064,-99.2171403
+16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Intermedia,Parque Naucalli,19.4919456,-99.2367184
+16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Intermedia,Plaza Satélite,19.510978,-99.235769
+16,Metro 4 caminos - Calvario Calacoaya por Ahuizotla,Inicial,El calvario,19.529931,-99.251911
+16,10 de abril - Calvario Calacoaya,Inicial,10 de abril,19.491492,-99.218528
+16,10 de abril - Calvario Calacoaya,Intermedia,Plaza Satélite,19.510978,-99.235769
+16,10 de abril - Calvario Calacoaya,Final,El calvario,19.529931,-99.251911
+22,México 86 - Tlanepantla,Inicial,México 86,19.590333,-99.247836
+22,México 86 - Tlanepantla,Intermedia,Bodegas Atizapán,19.568878,-99.253122
+22,México 86 - Tlanepantla,Final,Palacio Municipal Atizapán,19.577928,-99.230231
 22,México 86 - Tlanepantla,Tlanepantla,19.536225,-99.196728
-22,México 86 - Metro 4 Caminos por Satélite,México 86,19.590333,-99.247836
-22,México 86 - Metro 4 Caminos por Satélite,Bodegas Atizapán,19.568878,-99.253122
-22,México 86 - Metro 4 Caminos por Satélite,Palacio Municipal Atizapán,19.577928,-99.230231
-22,México 86 - Metro 4 Caminos Por Satélite,Plaza Satélite,19.510978,-99.235769
-22,México 86 - Metro 4 Caminos por Satélite,Toreo,19.453689,-99.219717
-22,México 86 - Metro 4 Caminos por Satélite,Metro 4 Caminos,19.461286,-99.214861
-22,México 86 - Metro 4 Caminos por Bachilleres,México 86,19.590333,-99.247836
-22,México 86 - Metro 4 Caminos por Bachilleres,Nissan Atizapán,19.548583,-99.238558
-22,México 86 - Metro 4 Caminos por Bachilleres,Plaza Satélite,19.510978,-99.235769
-22,México 86 - Metro 4 Caminos por Bachilleres,Parque Naucalli,19.4919456,-99.2367184
-22,México 86 - Metro 4 Caminos por Bachilleres,Bachilleres,19.4851703,-99.2084008
-22,México 86 - Metro 4 Caminos por Bachilleres,Parque Bicentenario,19.4709438,-99.2067172
-22,México 86 - Metro 4 Caminos por Bachilleres,Panteón Español,19.4627358,-99.2125993
-22,México 86 - Metro 4 Caminos por Bachilleres,Metro 4 Caminos,19.4595064,-99.2171403
-25,Metro Observatorio - Lomas de Atizapán,Metro Observatorio,19.398353,-99.1959
-25,Metro Observatorio - Lomas de Atizapán,Defensa,19.440631,-99.214542
-25,Metro Observatorio - Lomas de Atizapán,Toreo,19.453689,-99.219717
-25,Metro Observatorio - Lomas de Atizapán,Plaza Satélite,19.510978,-99.235769
-25,Metro Observatorio - Lomas de Atizapán,Atizapán Palacio Municipal,19.543172,-99.235097
-25,Metro Observatorio - Lomas de Atizapán,Lomas de Atizapán,19.554292,-99.262233
-25,Metro Observatorio - Lomas de las torres,Metro observatorio,19.398353,-99.1959
-25,Metro Observatorio - Lomas de las torres,Defensa,19.440631,-99.214542
-25,Metro Observatorio - Lomas de las torres,Toreo,19.453689,-99.219717
-25,Metro Observatorio - Lomas de las torres,Plaza Satélite,19.510978,-99.235769
-25,Metro Observatorio - Lomas de las torres,Lomas lindas,19.576342,-99.258467
-25,Metro Observatorio - Lomas de las torres,Lomas de las torres,19.592994,-99.26115
-25,Metro Observatorio - Tecnologico,Metro observatorio,19.398353,-99.1959
-25,Metro Observatorio - Tecnologico,Defensa,19.440631,-99.214542
-25,Metro Observatorio - Tecnologico,Toreo,19.453689,-99.219717
-25,Metro Observatorio - Tecnologico,Plaza Satélite,19.510978,-99.235769
-25,Metro Observatorio - Tecnologico,Arboledas,19.567744,-99.223744
-25,Metro Observatorio - Tecnologico,Tecnologico,19.597253,-99.227008
-25,Metro Observatorio - Tlanepantla,Metro observatorio,19.398353,-99.1959
-25,Metro Observatorio - Tlanepantla,Defensa,19.440631,-99.214542
-25,Metro Observatorio - Tlanepantla,Toreo,19.453689,-99.219717
-25,Metro Observatorio - Tlanepantla,Plaza Satélite,19.510978,-99.235769
-25,Metro Observatorio - Tlanepantla,Tlanepantla,19.536225,-99.196728
-25,Metro Observatorio - Col. Las Águilas,Metro observatorio,19.398353,-99.1959
-25,Metro Observatorio - Col. Las Águilas,Defensa,19.440631,-99.214542
-25,Metro Observatorio - Col. Las Águilas,Toreo,19.453689,-99.219717
-25,Metro Observatorio - Col. Las Águilas,Plaza Satélite,19.510978,-99.235769
-25,Metro Observatorio - Col. Las Águilas,Nissan Atizapán,19.548583,-99.238558
-25,Metro Observatorio - Col. Las Águilas,Bodegas Atizapán,19.568878,-99.253122
-25,Metro Observatorio - Col. Las Águilas,Col. Las aguilas,19.580636,-99.249594
-25,Col. Huguera - Tlanepantla,Col. Huguera,19.575528,-99.241575
-25,Col. Huguera - Tlanepantla,Cruz Roja Atizapán,19.564769,-99.243472
-25,Col. Huguera - Tlanepantla,Nissan Atizapán,19.548583,-99.238558
-25,Col. Huguera - Tlanepantla,Centro comercial sentura,19.539936,-99.216519
-25,Col. Huguera - Tlanepantla,Tlanepantla,19.536225,-99.196728
-25,Zona 7 México nuevo - Tlanepantla,Zona 7 México nuevo,19.561633,-99.266758
-25,Zona 7 México nuevo - Tlanepantla,Plaza Centro Atizapán,19.5552,-99.267864
-25,Zona 7 México nuevo - Tlanepantla,Nissan Atizapán,19.548583,-99.238558
-25,Zona 7 México nuevo - Tlanepantla,Centro comercial sentura,19.539936,-99.216519
-25,Zona 7 México nuevo - Tlanepantla,Tlanepantla,19.536225,-99.196728
-25,Lazaro Cardenas - Tlanepantla,Lazaro Cardenas,19.575528,-99.241575
-25,Lazaro Cardenas - Tlanepantla,Ahuehuetes,19.534969,-99.172936
-25,Lazaro Cardenas - Tlanepantla,San Andres,19.540792,-99.216003
-25,Lazaro Cardenas - Tlanepantla,Tlanepantla,19.536225,-99.196728
-25,Calacoaya - Tlanapantla,Calacoaya,19.532517,-99.244344
-25,Calacoaya - Tlanapantla,Av. de la pierda,19.540528,-99.237817
-25,Calacoaya - Tlanapantla,Manzana 022,19.527983,-99.223267
-25,Calacoaya - Tlanapantla,Tlanepantla,19.536225,-99.196728
-25,Amplición Higuera - Tlanepantla,Amplición Higuera,19.575528,-99.241575
-25,Amplición Higuera - Tlanepantla,Club de Golf Hacienda,19.571969,-99.226972
-25,Amplición Higuera - Tlanepantla,Nissan Atizapán,19.548583,-99.238558
-25,Amplición Higuera - Tlanepantla,Centro comercial sentura,19.539936,-99.216519
-25,Amplición Higuera - Tlanepantla,Tlanepantla,19.536225,-99.196728
-25,Bodegas Atizapán - Monte sol,Bodegas Atizapán,19.568878,-99.253122
-25,Bodegas Atizapán - Monte sol,Nissan Atizapán,19.548583,-99.238558
-25,Bodegas Atizapán - Monte sol,Club de Golf Hacienda,19.571969,-99.226972
-25,Bodegas Atizapán - Monte sol,Monte sol,19.582764,-99.228061
-25,Mexico Nuevo - Central de abastos Atizapán,Zona 1 Mexico nuevo,19.564108,-99.263506
-25,Mexico Nuevo - Central de abastos Atizapán,Lomas Lindas,19.580136,-99.254344
-25,Mexico Nuevo - Central de abastos Atizapán,Zona 5,19.583147,-99.244931
-25,Mexico Nuevo - Central de abastos Atizapán,Bodegas Atizapán,19.568878,-99.253122
-25,Mexico Nuevo - Central de abastos Atizapán,Central de abastos Atizapán,19.569194,-99.250878
-26,Bodegas Atizapan - Unidad Maravillas Ceylan,Bodegas Atizapán,19.568878,-99.253122
-26,Bodegas Atizapan - Unidad Maravillas Ceylan,Nissan Atizapán,19.548583,-99.238558
-26,Bodegas Atizapan - Unidad Maravillas Ceylan,Centro comercial sentura,19.539936,-99.216519
-26,Bodegas Atizapan - Unidad Maravillas Ceylan,Tlanepantla,19.536225,-99.196728
-26,Bodegas Atizapan - Unidad Maravillas Ceylan,U.H. Maravillas Ceylan,19.508861,-99.175697
-26,Zona 1 México Nuevo - Hospital Ceylan,Zona 1 Mexico nuevo,19.564108,-99.263506
-26,Zona 1 México Nuevo - Hospital Ceylan,Nissan Atizapán,19.548583,-99.238558
-26,Zona 1 México Nuevo - Hospital Ceylan,Centro comercial sentura,19.539936,-99.216519
-26,Zona 1 México Nuevo - Hospital Ceylan,Tlanepantla,19.536225,-99.196728
-26,Zona 1 México Nuevo - Hospital Ceylan,Hospital Ceylan,19.538022,-99.178222
-26,Barrio Norte - Las palomas,Barrio Norte,19.564275,-99.252931
-26,Barrio Norte - Las palomas,Nissan Atizapán,19.548583,-99.238558
-26,Barrio Norte - Las palomas,Centro comercial sentura,19.539936,-99.216519
-26,Barrio Norte - Las palomas,Tlanepantla,19.536225,-99.196728
-26,Barrio Norte - Las palomas,Las Palomas,19.530767,-99.154764
-27,Peñitas - Atizapán palacio municipal,Las peñitas,19.606956,-99.224253
-27,Peñitas - Atizapán palacio municipal,San Mateo Tecoloapan,19.577928,-99.230231
-27,Peñitas - Atizapán palacio municipal,Palacio Municipal Atizapán,19.577928,-99.230231
-27,Lomas San Miguel - Metro chapultepec,Lomas San Miguel,19.592064,-99.231608
-27,Lomas San Miguel - Metro chapultepec,Club de Golf Hacienda,19.571969,-99.226972
-27,Lomas San Miguel - Metro chapultepec,Toks Valle dorado,19.551194,-99.207928
-27,Lomas San Miguel - Metro chapultepec,Centro comercial sentura,19.539936,-99.216519
-27,Lomas San Miguel - Metro chapultepec,Plaza Satélite,19.510978,-99.235769
-27,Lomas San Miguel - Metro chapultepec,Toreo,19.453689,-99.219717
-27,Lomas San Miguel - Metro chapultepec,La feria - Papalote,19.409128,-99.197508
-27,Lomas San Miguel - Metro chapultepec,Metro Chapultepec,19.420758,-99.176867
-27,Ampliación Higuera - Metro 4 caminos,Amplición Higuera,19.575528,-99.241575
-27,Ampliación Higuera - Metro 4 caminos,Club de Golf Hacienda,19.571969,-99.226972
-27,Ampliación Higuera - Metro 4 caminos,Toks Valle dorado,19.551194,-99.207928
-27,Ampliación Higuera - Metro 4 caminos,Centro comercial sentura,19.539936,-99.216519
-27,Ampliación Higuera - Metro 4 caminos,Plaza Satélite,19.510978,-99.235769
-27,Ampliación Higuera - Metro 4 caminos,Toreo,19.453689,-99.219717
-27,Ampliación Higuera - Metro 4 caminos,Metro 4 caminos,19.461286,-99.214861
-27,Ampliación Higuera - Metro chapultepec,Amplición Higuera,19.575528,-99.241575
-27,Ampliación Higuera - Metro chapultepec,Club de Golf Hacienda,19.571969,-99.226972
-27,Ampliación Higuera - Metro chapultepec,Toks Valle dorado,19.551194,-99.207928
-27,Ampliación Higuera - Metro chapultepec,Centro comercial sentura,19.539936,-99.216519
-27,Ampliación Higuera - Metro chapultepec,Plaza Satélite,19.510978,-99.235769
-27,Ampliación Higuera - Metro chapultepec,Toreo,19.453689,-99.219717
-27,Ampliación Higuera - Metro chapultepec,La feria - Papalote,19.409128,-99.197508
-27,Ampliación Higuera - Metro chapultepec,Metro Chapultepec,19.420758,-99.176867
+22,México 86 - Metro 4 Caminos por Satélite,Inicial,México 86,19.590333,-99.247836
+22,México 86 - Metro 4 Caminos por Satélite,Intermedia,Bodegas Atizapán,19.568878,-99.253122
+22,México 86 - Metro 4 Caminos por Satélite,Intermedia,Palacio Municipal Atizapán,19.577928,-99.230231
+22,México 86 - Metro 4 Caminos Por Satélite,Intermedia,Plaza Satélite,19.5118634,-99.2358808
+22,México 86 - Metro 4 Caminos por Satélite,Intermedia,Parque Naucalli,19.4940822,-99.2371288
+22,México 86 - Metro 4 Caminos por Satélite,Intermedia,Toreo,19.453689,-99.219717
+22,México 86 - Metro 4 Caminos por Satélite,Final,Metro 4 Caminos,19.461286,-99.214861
+22,México 86 - Metro 4 Caminos por Bachilleres,Inicial,México 86,19.590333,-99.247836
+22,México 86 - Metro 4 Caminos por Bachilleres,Intermedia,Nissan Atizapán,19.548583,-99.238558
+22,México 86 - Metro 4 Caminos por Bachilleres,Intermedia,Plaza Satélite,19.5118634,-99.2358808
+22,México 86 - Metro 4 Caminos por Bachilleres,Intermedia,Parque Naucalli,19.4940822,-99.2371288
+22,México 86 - Metro 4 Caminos por Bachilleres,Intermedia,Bachilleres,19.4851703,-99.2084008
+22,México 86 - Metro 4 Caminos por Bachilleres,Intermedia,Parque Bicentenario,19.4709438,-99.2067172
+22,México 86 - Metro 4 Caminos por Bachilleres,Intermedia,Panteón Español,19.4627358,-99.2125993
+22,México 86 - Metro 4 Caminos por Bachilleres,Final,Metro 4 Caminos,19.4595064,-99.2171403
+25,Metro Observatorio - Lomas de Atizapán,Inicial,Metro Observatorio,19.398353,-99.1959
+25,Metro Observatorio - Lomas de Atizapán,Intermedia,Defensa,19.4415099,-99.215322
+25,Metro Observatorio - Lomas de Atizapán,Intermedia,Toreo,19.453689,-99.219717
+25,Metro Observatorio - Lomas de Atizapán,Intermedia,Plaza Satélite,19.510978,-99.235769
+25,Metro Observatorio - Lomas de Atizapán,Intermedia,Atizapán Palacio Municipal,19.5436906,-99.234334
+25,Metro Observatorio - Lomas de Atizapán,Final,Lomas de Atizapán,19.554292,-99.262233
+25,Metro Observatorio - Lomas de las torres,Inicial,Metro observatorio,19.398353,-99.1959
+25,Metro Observatorio - Lomas de las torres,Intermedia,Defensa,19.4415099,-99.215322
+25,Metro Observatorio - Lomas de las torres,Intermedia,Toreo,19.453689,-99.219717
+25,Metro Observatorio - Lomas de las torres,Intermedia,Plaza Satélite,19.510978,-99.235769
+25,Metro Observatorio - Lomas de las torres,Intermedia,Lomas lindas,19.576342,-99.258467
+25,Metro Observatorio - Lomas de las torres,Final,Lomas de las torres,19.592994,-99.26115
+25,Metro Observatorio - Tecnologico,Inicial,Metro observatorio,19.398353,-99.1959
+25,Metro Observatorio - Tecnologico,Intermedia,Defensa,19.4415099,-99.215322
+25,Metro Observatorio - Tecnologico,Intermedia,Toreo,19.453689,-99.219717
+25,Metro Observatorio - Tecnologico,Intermedia,Plaza Satélite,19.510978,-99.235769
+25,Metro Observatorio - Tecnologico,Intermedia,,Arboledas,19.567744,-99.223744
+25,Metro Observatorio - Tecnologico,Final,Tecnologico,19.597253,-99.227008
+25,Metro Observatorio - Tlanepantla,Inicial,Metro observatorio,19.398353,-99.1959
+25,Metro Observatorio - Tlanepantla,Intermedia,Defensa,19.4415099,-99.215322
+25,Metro Observatorio - Tlanepantla,Intermedia,Toreo,19.453689,-99.219717
+25,Metro Observatorio - Tlanepantla,Intermedia,Plaza Satélite,19.510978,-99.235769
+25,Metro Observatorio - Tlanepantla,Final,Tlanepantla,19.536225,-99.196728
+25,Metro Observatorio - Col. Las Águilas,Inicial,Metro observatorio,19.398353,-99.1959
+25,Metro Observatorio - Col. Las Águilas,Intermedia,Defensa,19.4415099,-99.215322
+25,Metro Observatorio - Col. Las Águilas,Intermedia,Toreo,19.453689,-99.219717
+25,Metro Observatorio - Col. Las Águilas,Intermedia,Plaza Satélite,19.510978,-99.235769
+25,Metro Observatorio - Col. Las Águilas,Intermedia,Nissan Atizapán,19.548583,-99.238558
+25,Metro Observatorio - Col. Las Águilas,Intermedia,Bodegas Atizapán,19.568878,-99.253122
+25,Metro Observatorio - Col. Las Águilas,Final,Col. Las aguilas,19.580636,-99.249594
+25,Col. Huguera - Tlanepantla,Inicial,Col. Huguera,19.575528,-99.241575
+25,Col. Huguera - Tlanepantla,Intermedia,Cruz Roja Atizapán,19.564769,-99.243472
+25,Col. Huguera - Tlanepantla,Intermedia,Nissan Atizapán,19.548583,-99.238558
+25,Col. Huguera - Tlanepantla,Intermedia,Centro comercial sentura,19.5391189,-99.2140955
+25,Col. Huguera - Tlanepantla,Final,Tlanepantla,19.536225,-99.196728
+25,Zona 7 México nuevo - Tlanepantla,Inicial,Zona 7 México nuevo,19.561633,-99.266758
+25,Zona 7 México nuevo - Tlanepantla,Intermedia,Plaza Centro Atizapán,19.5552,-99.267864
+25,Zona 7 México nuevo - Tlanepantla,Intermedia,Nissan Atizapán,19.548583,-99.238558
+25,Zona 7 México nuevo - Tlanepantla,Intermedia,Centro comercial sentura,19.5391189,-99.2140955
+25,Zona 7 México nuevo - Tlanepantla,Final,Tlanepantla,19.536225,-99.196728
+25,Lazaro Cardenas - Tlanepantla,Inicial,Lazaro Cardenas,19.575528,-99.241575
+25,Lazaro Cardenas - Tlanepantla,Intermedia,Ahuehuetes,19.534969,-99.172936
+25,Lazaro Cardenas - Tlanepantla,Intermedia,San Andres,19.540792,-99.216003
+25,Lazaro Cardenas - Tlanepantla,Final,Tlanepantla,19.536225,-99.196728
+25,Calacoaya - Tlanapantla,Inicial,Calacoaya,19.532517,-99.244344
+25,Calacoaya - Tlanapantla,Intermedia,Av. de la pierda,19.540528,-99.237817
+25,Calacoaya - Tlanapantla,Intermedia,Manzana 022,19.527983,-99.223267
+25,Calacoaya - Tlanapantla,Final,Tlanepantla,19.536225,-99.196728
+25,Amplición Higuera - Tlanepantla,Inicial,Amplición Higuera,19.575528,-99.241575
+25,Amplición Higuera - Tlanepantla,Intermedia,Club de Golf Hacienda,19.571969,-99.226972
+25,Amplición Higuera - Tlanepantla,Intermedia,Nissan Atizapán,19.548583,-99.238558
+25,Amplición Higuera - Tlanepantla,Intermedia,Centro comercial sentura,19.5391189,-99.2140955
+25,Amplición Higuera - Tlanepantla,Final,Tlanepantla,19.536225,-99.196728
+25,Bodegas Atizapán - Monte sol,Inicial,Bodegas Atizapán,19.568878,-99.253122
+25,Bodegas Atizapán - Monte sol,Intermedia,El calvario,19.529931,-99.251911
+25,Bodegas Atizapán - Monte sol,Intermedia,Mercado Calacoaya,19.5368675,-99.2366448
+25,Bodegas Atizapán - Monte sol,Intermedia,Club de Golf Hacienda,19.5676946,-99.2260732
+25,Bodegas Atizapán - Monte sol,Final,Monte sol,19.582764,-99.228061
+25,Mexico Nuevo - Central de abastos Atizapán,Inicial,Zona 1 Mexico nuevo,19.564108,-99.263506
+25,Mexico Nuevo - Central de abastos Atizapán,Intermedia,Lomas Lindas,19.580136,-99.254344
+25,Mexico Nuevo - Central de abastos Atizapán,Intermedia,Zona 5,19.5798181,-99.2426144
+25,Mexico Nuevo - Central de abastos Atizapán,Intermedia,Soriana Mercado,19.5676031,-99.2518097
+25,Mexico Nuevo - Central de abastos Atizapán,Final,Central de abastos Atizapán,19.569194,-99.250878
+26,Bodegas Atizapan - Unidad Maravillas Ceylan,Inicial,Bodegas Atizapán,19.568878,-99.253122
+26,Bodegas Atizapan - Unidad Maravillas Ceylan,Intermedia,Nissan Atizapán,19.548583,-99.238558
+26,Bodegas Atizapan - Unidad Maravillas Ceylan,Intermedia,Centro comercial sentura,19.5391189,-99.2140955
+26,Bodegas Atizapan - Unidad Maravillas Ceylan,Intermedia,Tlanepantla,19.536225,-99.196728
+26,Bodegas Atizapan - Unidad Maravillas Ceylan,Final,U.H. Maravillas Ceylan,19.508861,-99.175697
+26,Zona 1 México Nuevo - Hospital Ceylan,Inicial,Zona 1 Mexico nuevo,19.564108,-99.263506
+26,Zona 1 México Nuevo - Hospital Ceylan,Intermedia,Nissan Atizapán,19.548583,-99.238558
+26,Zona 1 México Nuevo - Hospital Ceylan,Intermedia,Centro comercial sentura,19.5391189,-99.2140955
+26,Zona 1 México Nuevo - Hospital Ceylan,Intermedia,Tlanepantla,19.536225,-99.196728
+26,Zona 1 México Nuevo - Hospital Ceylan,Final,Hospital Ceylan,19.538022,-99.178222
+26,Barrio Norte - Las palomas,Inicial,Barrio Norte,19.564275,-99.252931
+26,Barrio Norte - Las palomas,Intermedia,Nissan Atizapán,19.548583,-99.238558
+26,Barrio Norte - Las palomas,Intermedia,Centro comercial sentura,19.5391189,-99.2140955
+26,Barrio Norte - Las palomas,Intermedia,Tlanepantla,19.536225,-99.196728
+26,Barrio Norte - Las palomas,Final,Las Palomas,19.530767,-99.154764
+27,Peñitas - Atizapán palacio municipal,Inicial,Las peñitas,19.606956,-99.224253
+27,Peñitas - Atizapán palacio municipal,Final,Palacio Municipal Atizapán,19.577928,-99.230231
+27,Lomas San Miguel - Metro chapultepec,Inicial,Lomas San Miguel,19.592064,-99.231608
+27,Lomas San Miguel - Metro chapultepec,Intermedia,Club de Golf Hacienda,19.571969,-99.226972
+27,Lomas San Miguel - Metro chapultepec,Intermedia,Toks Valle dorado,19.551194,-99.207928
+27,Lomas San Miguel - Metro chapultepec,Intermedia,Centro comercial sentura,19.54001369,-99.21464458
+27,Lomas San Miguel - Metro chapultepec,Intermedia,Plaza Satélite,19.5118634,-99.2358808
+27,Lomas San Miguel - Metro chapultepec,Intermedia,Toreo,19.4534099,-99.2207167
+27,Lomas San Miguel - Metro chapultepec,Intermedia,La feria - Papalote,19.409128,-99.197508
+27,Lomas San Miguel - Metro chapultepec,Final,Metro Chapultepec,19.420758,-99.176867
+27,Ampliación Higuera - Metro 4 caminos,Inicial,Amplición Higuera,19.575528,-99.241575
+27,Ampliación Higuera - Metro 4 caminos,Intermedia,Club de Golf Hacienda,19.571969,-99.226972
+27,Ampliación Higuera - Metro 4 caminos,Intermedia,Toks Valle dorado,19.551194,-99.207928
+27,Ampliación Higuera - Metro 4 caminos,Intermedia,Centro comercial sentura,19.54001369,-99.21464458
+27,Ampliación Higuera - Metro 4 caminos,Intermedia,Plaza Satélite,19.5118634,-99.2358808
+27,Ampliación Higuera - Metro 4 caminos,Intermedia,Toreo,19.453689,-99.219717
+27,Ampliación Higuera - Metro 4 caminos,Final,Metro 4 caminos,19.461286,-99.214861
+27,Ampliación Higuera - Metro chapultepec,Inicial,Amplición Higuera,19.575528,-99.241575
+27,Ampliación Higuera - Metro chapultepec,Intermedia,Club de Golf Hacienda,19.571969,-99.226972
+27,Ampliación Higuera - Metro chapultepec,Intermedia,Toks Valle dorado,19.551194,-99.207928
+27,Ampliación Higuera - Metro chapultepec,Intermedia,Centro comercial sentura,19.54001369,-99.21464458
+27,Ampliación Higuera - Metro chapultepec,Intermedia,Plaza Satélite,19.5118634,-99.2358808
+27,Ampliación Higuera - Metro chapultepec,Intermedia,Toreo,19.4534099,-99.2207167
+27,Ampliación Higuera - Metro chapultepec,Intermedia,La feria - Papalote,19.409128,-99.197508
+27,Ampliación Higuera - Metro chapultepec,Final,Metro Chapultepec,19.420758,-99.176867
