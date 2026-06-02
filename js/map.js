@@ -14,6 +14,13 @@ const ROUTE_COLORS = {
 
 function colorForRoute(routeNum) { return ROUTE_COLORS[routeNum] || "#999999"; }
 
+// ── Toggle Search Bar ──────────────────────────────────────────────────────────
+document.getElementById('btn-toggle-search').addEventListener('click', function() {
+    const searchFooter = document.getElementById('search-footer');
+    searchFooter.classList.toggle('collapsed');
+    this.textContent = searchFooter.classList.contains('collapsed') ? '📍 Planea tu ruta' : '📍 Cerrar';
+});
+
 // ── Mapa ──────────────────────────────────────────────────────────────────────
 const map = new mapboxgl.Map({
     container: "map",

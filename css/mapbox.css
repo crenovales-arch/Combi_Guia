@@ -12,7 +12,7 @@
     --background-color: rgb(255, 215, 179);
     --text-color: rgb(0, 0, 0);
     --body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
-     --tittle-font: 'Combi Sans', sans;
+     --tittle-font: "Combi Sans", sans-serif;
      --sidebar-bg: rgb(255, 255, 255);
 
 }
@@ -392,12 +392,41 @@ img[src$=".svg"] {
     z-index: 10;        /* Por encima del mapa */
     width: 800px;   /* Un ancho máximo limpio para que no tape todo el mapa */
     min-height: 220px;  /* Aumenta el alto para instrucciones */
+    transition: all 0.3s ease;
+}
+
+#search-footer.collapsed {
+    min-height: auto;
+    width: 300px;
+}
+
+#search-footer.collapsed .search-inputs,
+#search-footer.collapsed .plan-instructions {
+    display: none !important;
+}
+
+.search-toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 10px 0;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-family: var(--title-font);
+    transition: opacity 0.3s ease;
+}
+
+.search-toggle-btn:hover {
+    opacity: 0.8;
 }
 
 #search-footer h3 {
      margin: 10px 0 10px 0; 
      font-size: 1.1rem; 
-     font-family: var(--body-font);
+     font-family: var(--title-font);
      color: var(--sidebar-bg); 
      font-weight: 700; 
     }
