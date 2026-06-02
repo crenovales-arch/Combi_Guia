@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Combi Sans';
-    src: url('CombiSans-Regular.woff2') format('woff2'),
-        url('CombiSans-Regular.woff') format('woff');
+    src: url('../css/CombiSans-Regular.woff2') format('woff2'),
+        url('../css/CombiSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -9,37 +9,242 @@
 
 :root {
     --text-color: rgb(0, 0, 0);
-    --accent-color: rgb(59,165,41);
+    --accent-color: rgb(59, 165, 41);
     --background-color: rgb(255, 215, 179);
     --title-color: rgb(235, 92, 1);
-    --tittle-font: 'Combi Sans', sans;
-    --body-font: 'helvetica', sans-serif;
+    --tittle-font: 'Combi Sans', sans-serif;
+    --body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --sidebar-bg: rgb(255, 255, 255);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 html {
     font-size: 50%;
     scroll-behavior: smooth;
     background-color: var(--background-color);
-}
-* {
-    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-font);
+    color: var(--text-color);
+}
+
+/* Headings */
 h1 {
-    margin-left: 2%;
-    margin-top:2%; 
-    
+    margin: 2% 0 0 2%;
     color: var(--title-color);
     font-family: var(--tittle-font);
-    font-size: 260px;
+    font-size: 100px;
     font-style: normal;
     font-weight: 700;
-    line-height: 89%; 
+    line-height: 89%;
     letter-spacing: -10.4px;
-    
-
-    /* Efecto de una palabra por línea */
     display: block;
-    width: min-content;      /* Fuerza el salto de línea por palabra */
-    margin-bottom: 0%;      /* LOS 5 PIXELES DE SEPARACIÓN AQUÍ */
+    width: min-content;
+}
+
+h2 {
+    color: var(--title-color);
+    font-family: var(--tittle-font);
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 89%;
+    letter-spacing: -8px;
+    margin: 3% 0 2% 2%;
+}
+
+h3 {
+    color: var(--title-color);
+    font-family: var(--tittle-font);
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -4px;
+    margin: 2% 0 1% 2%;
+}
+
+h4, h5, h6 {
+    color: var(--title-color);
+    font-family: var(--tittle-font);
+    font-weight: 700;
+    margin: 1.5% 0 1% 2%;
+}
+
+p, li {
+    font-family: var(--body-font);
+    font-size: 2em;
+    line-height: 1.6;
+    margin: 1% 2%;
+    color: var(--text-color);
+}
+
+/* Botón Primario */
+.primary-btn {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 0.8em 2.5em;
+    border-radius: 9px;
+    text-decoration: none;
+    font-family: var(--body-font);
+    font-weight: bold;
+    font-size: 2em;
+    display: inline-block;
+    transition: color 0.3s ease;
+    margin: 2% 0 2% 2%;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    color: var(--title-color);
+}
+
+/* Header */
+header {
+    background-color: var(--background-color);
+    padding: 2% 2%;
+    border-bottom: 4px solid var(--title-color);
+}
+
+header h1 {
+    margin: 1% 0 1% 0;
+}
+
+header p {
+    font-size: 2.5em;
+    margin: 1% 0;
+    color: var(--text-color);
+}
+
+header nav {
+    display: flex;
+    gap: 2%;
+    margin-top: 2%;
+}
+
+/* Navigation */
+nav {
+   
+    padding: 2% 2%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2%;
+}
+
+nav h3 {
+    margin: 0 0 1.5% 0;
+    font-size: 40px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0.8% 0;
+}
+
+nav ul li a {
+    color: var(--title-color);
+    text-decoration: none;
+    font-family: var(--body-font);
+    font-size: 2em;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    border-left: 4px solid transparent;
+    padding-left: 1.5%;
+    display: block;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+    border-left-color: var(--accent-color);
+}
+
+/* Main Content */
+main {
+    max-width: 100%;
+    padding: 0 2%;
+    margin-bottom: 3%;
+}
+
+section, article {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2% 2%;
+    margin-bottom: 2%;
+    border-left: 4px solid var(--title-color);
+    border-radius: 4px;
+}
+
+section h2, article h2 {
+    margin-top: 0;
+}
+
+section h3, article h3 {
+    color: var(--accent-color);
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+ul {
+    list-style: none;
+    padding-left: 2%;
+}
+
+ul li {
+    margin: 1% 0;
+    padding-left: 2%;
+    position: relative;
+}
+
+ul li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.5em;
+    position: absolute;
+    left: -1%;
+}
+
+ul li b {
+    color: var(--title-color);
+    font-family: var(--tittle-font);
+    font-weight: 700;
+}
+
+/* Footer */
+footer {
+    background-color: var(--title-color);
+    color: rgb(255, 255, 255);
+    padding: 3% 2%;
+    text-align: center;
+    margin-top: 3%;
+    border-top: 4px solid var(--accent-color);
+}
+
+footer p {
+    margin: 1% 0;
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+}
+
+footer address {
+    font-family: var(--body-font);
+    font-size: 1.8em;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: normal;
+}
+
+#body-ul b {
+    color: var(--title-color);
+    font-family: var(--tittle-font);
+    font-size: 500em;
 }
