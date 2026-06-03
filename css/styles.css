@@ -12,7 +12,7 @@
     --accent-color: rgb(59,165,41);
     --background-color: rgb(255, 215, 179);
     --title-color: rgb(235, 92, 1);
-    --tittle-font: 'Combi Sans', sans;
+    --title-font: 'Combi Sans', sans;
     --body-font: 'helvetica', sans-serif;
 }
 
@@ -30,7 +30,7 @@ html {
     margin-top:2%; 
     
     color: var(--title-color);
-    font-family: var(--tittle-font);
+    font-family: var(--title-font);
     font-size: 260px;
     font-style: normal;
     font-weight: 700;
@@ -142,7 +142,7 @@ position: relative;
     margin-top:2%; 
     
     color: var(--title-color);
-    font-family: var(--tittle-font);
+    font-family: var(--title-font);
     font-size: 100px;
     font-style: normal;
     font-weight: 700;

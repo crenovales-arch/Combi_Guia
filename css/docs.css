@@ -12,7 +12,7 @@
     --accent-color: rgb(59, 165, 41);
     --background-color: rgb(255, 215, 179);
     --title-color: rgb(235, 92, 1);
-    --tittle-font: 'Combi Sans', sans-serif;
+    --title-font: 'Combi Sans', sans-serif;
     --body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
     --sidebar-bg: rgb(255, 255, 255);
 }
@@ -40,7 +40,7 @@ body {
 h1 {
     margin: 2% 0 0 2%;
     color: var(--title-color);
-    font-family: var(--tittle-font);
+    font-family: var(--title-font);
     font-size: 100px;
     font-style: normal;
     font-weight: 700;
@@ -52,7 +52,7 @@ h1 {
 
 h2 {
     color: var(--title-color);
-    font-family: var(--tittle-font);
+    font-family: var(--title-font);
     font-size: 80px;
     font-weight: 700;
     line-height: 89%;
@@ -62,7 +62,7 @@ h2 {
 
 h3 {
     color: var(--title-color);
-    font-family: var(--tittle-font);
+    font-family: var(--title-font);
     font-size: 60px;
     font-weight: 700;
     line-height: 100%;
@@ -72,7 +72,7 @@ h3 {
 
 h4, h5, h6 {
     color: var(--title-color);
-    font-family: var(--tittle-font);
+    font-family: var(--title-font);
     font-weight: 700;
     margin: 1.5% 0 1% 2%;
 }
@@ -216,7 +216,7 @@ ul li::before {
 
 ul li b {
     color: var(--title-color);
-    font-family: var(--tittle-font);
+    font-family: var(--title-font);
     font-weight: 700;
 }
 
@@ -245,6 +245,6 @@ footer address {
 
 #body-ul b {
     color: var(--title-color);
-    font-family: var(--tittle-font);
+    font-family: var(--title-font);
     font-size: 500em;
 }

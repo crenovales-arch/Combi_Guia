@@ -12,7 +12,7 @@
     --background-color: rgb(255, 215, 179);
     --text-color: rgb(0, 0, 0);
     --body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
-     --tittle-font: "Combi Sans", sans-serif;
+     --title-font: "Combi Sans", sans-serif;
      --sidebar-bg: rgb(255, 255, 255);
 
 }
@@ -38,7 +38,7 @@ html, body
 
 #body-header {
   background-color: var(--background-color); 
-  font-family: var(--tittle-font);
+  font-family: var(--title-font);
   padding: 15px 20px 5px 20px;
   text-align: left; 
   color: var(--title-color); 
@@ -266,7 +266,7 @@ position: relative;
     margin-top:5%; 
     
     color: var(--title-color);
-    font-family: var(--tittle-font);
+    font-family: var(--title-font);
     font-size: 150px;
     font-style: normal;
     font-weight: 700;
@@ -369,7 +369,7 @@ img[src$=".svg"] {
 }
 #secondary-content h3 {
     margin: 10px 0 10px 0; 
-    font-family: var(--tittle-font);
+    font-family: var(--title-font);
     font-size: 25px; 
     color: var(--title-color); 
     font-weight: 700; 
