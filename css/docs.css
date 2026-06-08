@@ -61,55 +61,8 @@ img[alt="Cuadros"]{
     position:absolute;
     top:20px;
     left:20px;
-    z-index: 1;
+    z-index: 0;
     left: 0%;
-}
-
-nav {
-    position: relative;
-    background-color: var(--text-color);
-
-
-}
-
-#secondary-content h3 {
-    margin: 10px 0 10px 0; 
-    font-family: var(--title-font);
-    font-size: 25px; 
-    color: var(--title-color); 
-    font-weight: 700; 
-}
-
-#maincontent {
-    position: absolute;   /* Cambiado de relative a absolute para controlar sus límites */
-    top: 70px;            /* Distancia desde la parte superior de su contenedor real */
-    right: 12px;
-    background-color: var(--sidebar-bg);
-   width: 300px; 
-    height: 180px; 
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    z-index: 5;
-}
-
-.primary-btn {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    padding: 10px 20px;
-    border-radius: 9px;           /* Rectángulo puro */
-    text-decoration: none;      /* Sin subrayado inicial */
-    font-family: var(--body-font);
-    font-weight: bold;
-    font-size: 15px;
-    display: inline-block;
-    transition: color 0.3s ease;
-    top: 8px;
-    right: 10px;
-    position: absolute;
-}
-
-.primary-btn:hover { 
-     color: var(--title-color);
 }
 
 h2{
@@ -131,186 +84,175 @@ p{
 }
 
 
-.indice{
-    background:var(--black);
-    color:white;
-    padding:50px;
-    border-radius:50px 0 0 0;
-    width:fit-content;
-    margin-left:auto;
+.primary-btn {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border-radius: 9px;           /* Rectángulo puro */
+    text-decoration: none;      /* Sin subrayado inicial */
+    font-family: var(--body-font);
+    font-weight: bold;
+    font-size: 15px;
+    display: inline-block;
+    transition: color 0.3s ease;
+    top: 5px;
+    right: 10px;
+    position: absolute;
 }
 
-.indice h2{
-    font-size:4rem;
-    margin-bottom:20px;
+.primary-btn:hover { 
+     color: var(--title-color);
 }
 
-.indice ul{
-    list-style:none;
+#main-content h3 {
+    font-size: 100px;
+    font-family: var(--title-font);
+    color: var(--background-color);
+    font-weight: 100;
+    width: 300px;
+    height: 300px;
+    right: 0;
+    margin-top: 5%;
+
 }
 
-.indice li{
-    color:var(--orange);
-    font-size:1.8rem;
-    font-weight:700;
-    margin-bottom:10px;
+ #main-content{
+    width: 45vw;
+    margin-right: 0%;
+    background-color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: 30px;
+    top: 100px;
+    right: 0;
+    width: 50%;
+
+}  
+
+#main-content li a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: bold;
+
 }
 
-.section{
-    padding:120px 0;
+#main-content li a:hover {
+    text-decoration: underline;
 }
 
-.section-content{
-    max-width:900px;
+#main-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    bottom: 20px;
 }
 
-.section-content p{
-    font-size:1rem;
-    max-width:850px;
+h4 {
+    background-color: var(--title-color);
+    display: block;
+    color: var(--background-color);
+    font-family: var(--title-font);
+    width: 400px;
+    padding: 15px 20px;
+
+    margin-top: 5%;
+    margin-left: 45px;
+
+    text-align: center;
+    font-size: 30px;
+
+    border-top-right-radius: 10px;
 }
 
-/* =========================
-   TITULOS NARANJAS
-========================= */
-
-.section-title{
-    background:var(--orange);
-    color:white;
-
-    width:500px;
-    max-width:100%;
-
-    padding:35px 40px;
-
-    border-radius:
-    35px 35px 0 0;
-
-    margin-bottom:40px;
-
-    font-size:2rem;
-    font-weight:600;
+section[id="problemática"] p {
+    margin-top: 5%;
+    width: 75%;
+    max-width: 800px;
+    font-size: 20px;
+    
+    font-family: var(--body-font);
+    padding: 0;
+    margin-left: 150px;
 }
 
-.section-title.right{
-    margin-left:auto;
+h5 {
+    background-color: var(--title-color);
+    display: block;
+    color: var(--background-color);
+    font-family: var(--title-font);
+    width: 400px;
+    padding: 15px 20px;
+
+    margin-top: 5%;
+    margin-left: 45px;
+
+    text-align: center;
+    font-size: 30px;
+
+    border-top-right-radius: 10px;
 }
 
-/* =========================
-   RUTAS
-========================= */
-
-.routes{
-    display:flex;
-    flex-direction:column;
-    gap:50px;
+article[id="objetivo"] p {
+    margin-top: 5%;
+    width: 75%;
+    max-width: 800px;
+    font-size: 20px;
+    
+    font-family: var(--body-font);
+    padding: 0;
+    margin-left: 150px;
 }
 
-.route{
-    display:grid;
-    grid-template-columns:120px 1fr;
-    gap:40px;
-    align-items:start;
+h6 {
+    background-color: var(--title-color);
+    display: block;
+    color: var(--background-color);
+    font-family: var(--title-font);
+    width: 400px;
+    padding: 15px 20px;
+
+    margin-top: 5%;
+    margin-left: 45px;
+
+    text-align: center;
+    font-size: 30px;
+
+    border-top-right-radius: 10px;
 }
 
-.route-badge{
-    width:100px;
-    height:100px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    color:white;
-    font-weight:bold;
+article[id="Sistema de mapas"] p {
+    margin-top: 5%;
+    width: 75%;
+    max-width: 800px;
+    font-size: 20px;
+    
+    font-family: var(--body-font);
+    padding: 0;
+    margin-left: 150px;
 }
 
-.route-badge span:first-child{
-    font-size:1.2rem;
+h7 {
+    background-color: var(--title-color);
+    display: block;
+    color: var(--background-color);
+    font-family: var(--title-font);
+    width: 400px;
+    padding: 15px 20px;
+
+    margin-top: 5%;
+    margin-left: 45px;
+
+    text-align: center;
+    font-size: 30px;
+
+    border-top-right-radius: 10px;
 }
 
-.route-badge span:last-child{
-    font-size:3rem;
-    line-height:1;
-}
-
-/* colores */
-
-.r10{ background:#70B92D; }
-.r16{ background:#D7D71A; }
-.r22{ background:#8430A7; }
-.r25{ background:#19A9E8; }
-.r26{ background:#D41919; }
-.r27{ background:#E66AA9; }
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    background:black;
-    color:white;
-
-    padding:40px 0;
-    margin-top:100px;
-}
-
-.footer-content{
-    display:flex;
-    justify-content:space-between;
-    gap:40px;
-}
-
-.footer-logo{
-    font-size:3rem;
-    font-weight:700;
-}
-
-.footer-text{
-    font-size:.9rem;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width:768px){
-
-    .hero{
-        padding:50px 0;
-    }
-
-    .hero h1{
-        font-size:4rem;
-    }
-
-    .indice{
-        width:100%;
-        padding:30px;
-    }
-
-    .indice h2{
-        font-size:2.5rem;
-    }
-
-    .indice li{
-        font-size:1.2rem;
-    }
-
-    .section{
-        padding:70px 0;
-    }
-
-    .section-title{
-        width:100%;
-        font-size:1.5rem;
-    }
-
-    .route{
-        grid-template-columns:1fr;
-    }
-
-    .footer-content{
-        flex-direction:column;
-    }
+article[id="Rutas de Combis"] p {
+    margin-top: 5%;
+    width: 75%;
+    max-width: 800px;
+    font-size: 20px;
+    
+    font-family: var(--body-font);
+    padding: 0;
+    margin-left: 150px;
 }
