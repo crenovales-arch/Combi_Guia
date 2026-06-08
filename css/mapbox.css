@@ -539,6 +539,12 @@ img[src$=".svg"] {
 }
 
 #btn-toggle-master:hover { 
-    background: #000000; 
-    color: #ffffff; 
+    background: var(--text-color); 
+    color: var(--sidebar-bg); 
+}
+
+@media (orientation: portrait) {
+        height: auto;
+        width: 100%;
+        object-fit: contain;
 }
