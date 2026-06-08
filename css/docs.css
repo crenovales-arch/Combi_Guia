@@ -9,7 +9,6 @@
 
 :root {
     --text-color: rgb(0, 0, 0);
-    --accent-color: rgb(59, 165, 41);
     --background-color: rgb(255, 215, 179);
     --title-color: rgb(235, 92, 1);
     --title-font: 'Combi Sans', sans-serif;
@@ -27,6 +26,7 @@ html {
     background-color: var(--background-color);
     margin: 0;
     padding: 0;
+    z-index: auto;
 }
 *{
     margin:0;
@@ -57,13 +57,6 @@ header h1{
      font-family: var(--title-font);
 }
 
-img[alt="Cuadros"]{
-    position:absolute;
-    top:20px;
-    left:20px;
-    z-index: 0;
-    left: 0%;
-}
 
 h2{
     margin-top: 5%;
@@ -110,28 +103,28 @@ p{
     color: var(--background-color);
     font-weight: 100;
     width: 300px;
-    height: 300px;
-    right: 0;
+    margin-left: 10%;
     margin-top: 5%;
 
 }
 
  #main-content{
-    width: 45vw;
-    margin-right: 0%;
+    height: 380px;
     background-color: var(--text-color);
     font-family: var(--body-font);
     font-size: 30px;
-    top: 100px;
-    right: 0;
+    position: relative;
+    margin:60px 10px 30px 0px;
     width: 50%;
-
+    z-index: 1;
+    border-top-left-radius: 80px;
 }  
 
 #main-content li a {
     text-decoration: none;
-    color: var(--accent-color);
+    color: var(--title-color);
     font-weight: bold;
+    margin-left: 10%;
 
 }
 
@@ -144,115 +137,125 @@ p{
     padding-left: 0;
     bottom: 20px;
 }
-
-h4 {
-    background-color: var(--title-color);
-    display: block;
-    color: var(--background-color);
-    font-family: var(--title-font);
-    width: 400px;
-    padding: 15px 20px;
-
-    margin-top: 5%;
-    margin-left: 45px;
-
-    text-align: center;
-    font-size: 30px;
-
-    border-top-right-radius: 10px;
+main{
+    width:65%;
+    padding-bottom:100px;
 }
 
-section[id="problemática"] p {
-    margin-top: 5%;
+h4, h5, h6{
+    background:var(--title-color);
+    color:var(--background-color);
     width: 75%;
-    max-width: 800px;
-    font-size: 20px;
+    padding:15px;
+    margin:60px 0 30px 45px;
+    text-align:center;
+    font-family:var(--title-font);
+    font-size:6rem;
+    border-top-right-radius:50px;
+}
+
+main p{
+    width:75%;
+    max-width:900px;
+    margin-left:150px;
+    font-size:3em;
+    text-align:justify;
+}
+
+/* RUTAS */
+
+.rutas{
+    width:75%;
+    margin-left:150px;
+    list-style:none;
+    font-size:3rem;
+}
+
+.ruta-titulo{
+    color:var(--title-color);
+    font-weight:bold;
+    margin-top:25px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px;
+    background:var(--text-color);
+    color:var(--sidebar-bg);
+    z-index: 1;
+}
+
+footer p {
+    right: 10px;
+    font-size:4rem;
+    color: var(--sidebar-bg);
+     margin:60px 0 30px 45px;
+}
+
+footer address{
+    right: 10px;
+    font-size:4rem;
+    color: var(--sidebar-bg);
+     margin:60px 0 30px 45px;
+}
+
+footer img{
+    position:absolute;
+    right: 10px;
+    top: 20px;
+    z-index: 2;
+}
+/* RESPONSIVE */
+
+@media (max-width:900px){
+
+    #main-content{
+        position:static;
+
+        width:100%;
+        height:auto;
+    }
+
+    main{
+        width:100%;
+    }
+
+    main p,
+    .intro p,
+    .rutas{
+        width:90%;
+        margin:20px auto;
+    }
+
+    h4{
+        width:90%;
+        margin:40px auto;
+    }
+
+    header h1{
+        font-size:5rem;
+    }
+}
+
+img[alt="Cuadros"]
+{
+    position:absolute;
+    left:0px;
+    top: 0px;
+    z-index: -1;
+}
+
+img[src$="Asset.svg"] {
+    left: 0px;     
+    top: px;          
+    z-index: 2; 
+          /* Capa por encima del rectángulo naranja */
+}
+
+@media (orientation: portrait) {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
     
-    font-family: var(--body-font);
-    padding: 0;
-    margin-left: 150px;
-}
-
-h5 {
-    background-color: var(--title-color);
-    display: block;
-    color: var(--background-color);
-    font-family: var(--title-font);
-    width: 400px;
-    padding: 15px 20px;
-
-    margin-top: 5%;
-    margin-left: 45px;
-
-    text-align: center;
-    font-size: 30px;
-
-    border-top-right-radius: 10px;
-}
-
-article[id="objetivo"] p {
-    margin-top: 5%;
-    width: 75%;
-    max-width: 800px;
-    font-size: 20px;
-    
-    font-family: var(--body-font);
-    padding: 0;
-    margin-left: 150px;
-}
-
-h6 {
-    background-color: var(--title-color);
-    display: block;
-    color: var(--background-color);
-    font-family: var(--title-font);
-    width: 400px;
-    padding: 15px 20px;
-
-    margin-top: 5%;
-    margin-left: 45px;
-
-    text-align: center;
-    font-size: 30px;
-
-    border-top-right-radius: 10px;
-}
-
-article[id="Sistema de mapas"] p {
-    margin-top: 5%;
-    width: 75%;
-    max-width: 800px;
-    font-size: 20px;
-    
-    font-family: var(--body-font);
-    padding: 0;
-    margin-left: 150px;
-}
-
-h7 {
-    background-color: var(--title-color);
-    display: block;
-    color: var(--background-color);
-    font-family: var(--title-font);
-    width: 400px;
-    padding: 15px 20px;
-
-    margin-top: 5%;
-    margin-left: 45px;
-
-    text-align: center;
-    font-size: 30px;
-
-    border-top-right-radius: 10px;
-}
-
-article[id="Rutas de Combis"] p {
-    margin-top: 5%;
-    width: 75%;
-    max-width: 800px;
-    font-size: 20px;
-    
-    font-family: var(--body-font);
-    padding: 0;
-    margin-left: 150px;
 }
