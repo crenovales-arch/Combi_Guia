@@ -263,21 +263,20 @@ position: relative;
 
 .contenedor header{
      margin-left: 5%;
-    margin-top:5%; 
-    
-    color: var(--title-color);
-    font-family: var(--title-font);
-    font-size: 150px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 89%; 
-    letter-spacing: -3.5px;
+     margin-top:5%;
+     color: var(--title-color);
+     font-family: var(--title-font);
+     font-size: 150px;
+     font-style: normal;
+     font-weight: 100;
+     line-height: 89%;
+     letter-spacing: -3.5px;
     
 
     /* Efecto de una palabra por línea */
-    display: block;
-    width: min-content;      /* Fuerza el salto de línea por palabra */
-    margin-bottom: 0%;      /* LOS 5 PIXELES DE SEPARACIÓN AQUÍ */
+     display: block;
+     width: min-content;      /* Fuerza el salto de línea por palabra */
+     margin-bottom: 0%;      /* LOS 5 PIXELES DE SEPARACIÓN AQUÍ */
 }
 
 .contenedor label {
