@@ -544,7 +544,5 @@ img[src$=".svg"] {
 }
 
 @media (orientation: portrait) {
-        height: auto;
-        width: 100%;
-        object-fit: contain;
+
 }
