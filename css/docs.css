@@ -40,6 +40,10 @@ html{
 
 body{
     background: var(--background-color);
+    background-image: url('../img/Recurso.svg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 49.5px;
     color: var(--text-color);
     font-family: var(--body-font);
     line-height: 1.6;
@@ -114,7 +118,7 @@ p{
     font-family: var(--body-font);
     font-size: 30px;
     position: relative;
-    margin:60px 10px 30px 0px;
+     margin: 60px 0 30px auto;
     width: 50%;
     z-index: 1;
     border-top-left-radius: 80px;
@@ -201,7 +205,6 @@ footer address{
 }
 
 footer img{
-    position:absolute;
     right: 10px;
     top: 20px;
     z-index: 2;
@@ -241,16 +244,17 @@ footer img{
 img[alt="Cuadros"]
 {
     position:absolute;
-    left:0px;
+    left:10px;
     top: 0px;
     z-index: -1;
 }
 
-img[src$="Asset.svg"] {
-    left: 0px;     
-    top: px;          
-    z-index: 2; 
-          /* Capa por encima del rectángulo naranja */
+.combi-logo{
+    position:absolute;
+    left:-620px;
+    top:235px;
+    width:380px;
+    z-index:2;
 }
 
 @media (orientation: portrait) {
