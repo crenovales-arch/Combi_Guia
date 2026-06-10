@@ -21,6 +21,26 @@ document.getElementById('btn-toggle-search').addEventListener('click', function(
     this.textContent = searchFooter.classList.contains('collapsed') ? '📍 Planea tu ruta' : '📍 Cerrar';
 });
 
+const sidebarHeader = document.getElementById('sidebar-header');
+const sidebar = document.getElementById('sidebar');
+
+function collapseSidebarOnPortrait() {
+    if (!sidebar) return;
+    if (window.matchMedia('(orientation: portrait)').matches) {
+        sidebar.classList.remove('expanded');
+        const icon = sidebarHeader?.querySelector('.handle-icon');
+        if (icon) icon.textContent = '▴';
+    }
+}
+
+if (sidebarHeader && sidebar) {
+    sidebarHeader.addEventListener('click', () => {
+        sidebar.classList.toggle('expanded');
+        const icon = sidebarHeader.querySelector('.handle-icon');
+        if (icon) icon.textContent = sidebar.classList.contains('expanded') ? '▾' : '▴';
+    });
+}
+
 // ── Mapa ──────────────────────────────────────────────────────────────────────
 const map = new mapboxgl.Map({
     container: "map",
@@ -438,6 +458,7 @@ function buildAccordion(routesData) {
                 applyFilter();
                 fetchDirectionsForSubroute(ruta, subruta, color);
                 addEndpointMarkersForSubroute(ruta, subruta);
+                collapseSidebarOnPortrait();
 
                 // Si el usuario selecciona manualmente una subruta en el acordeón,
                 // ocultar cualquier ruta alternativa que haya mostrado el buscador
