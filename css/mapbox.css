@@ -544,5 +544,13 @@ img[src$=".svg"] {
 }
 
 @media (orientation: portrait) {
+    #map {
+    position: absolute;
+    left: 0px; /* Se desplaza exactamente lo que mide el sidebar para no quedar abajo */
+    top: 0;
+    width: 100%; /* Ocupa el resto de la pantalla */
+    height: 100%;
+    z-index: 1; /* Capa de fondo del contenido inferior */
+}
 
 }
